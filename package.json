@@ -1,0 +1,50 @@
+{
+  "name": "portfolio-yeipi",
+  "version": "1.0.0",
+  "description": "Portfolio profesional de Juan Pablo Rosas Martin - Desarrollador Full Stack con estilo Matrix/Formal",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000 --no-browser",
+    "serve": "python -m http.server 8000",
+    "build": "echo 'No build process needed - vanilla JS project'",
+    "test": "echo 'No tests yet'",
+    "lint": "echo 'No linting configured yet'",
+    "deploy": "echo 'Configure your deployment process'"
+  },
+  "keywords": [
+    "portfolio",
+    "terminal",
+    "matrix",
+    "javascript",
+    "pwa",
+    "responsive",
+    "accessibility",
+    "cyberpunk",
+    "interactive",
+    "fullstack",
+    "developer",
+    "yeipi"
+  ],
+  "author": {
+    "name": "Juan Pablo Rosas Martin",
+    "email": "juanpablorosasmartin@gmail.com",
+    "url": "https://portfolio.juanpablorosas.cl"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yeipills/portafolio.git"
+  },
+  "homepage": "https://portfolio.juanpablorosas.cl",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+} 

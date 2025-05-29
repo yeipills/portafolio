@@ -1,0 +1,42 @@
+/* =========================================
+   Correcciones para el tema formal
+   ========================================= */
+
+/* Asegurar que el contenedor de partículas sea visible */
+body.formal-theme #formal-particles {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* Asegurar que el canvas dentro sea visible */
+body.formal-theme #formal-particles canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+/* Mejorar visibilidad del patrón de fondo */
+body.formal-theme::before {
+  background-image: 
+    linear-gradient(30deg, rgba(41, 128, 185, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(41, 128, 185, 0.1) 87.5%, rgba(41, 128, 185, 0.1)),
+    linear-gradient(150deg, rgba(41, 128, 185, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(41, 128, 185, 0.1) 87.5%, rgba(41, 128, 185, 0.1));
+  background-size: 40px 70px;
+  opacity: 0.8;
+}
+
+/* Ocultar efectos Matrix cuando el tema formal está activo */
+body.formal-theme #page-matrix-glitch,
+body.formal-theme #matrix-canvas,
+body.formal-theme .matrix-bg,
+body.formal-theme .scan-line,
+body.formal-theme .overlay {
+  display: none;
+} 

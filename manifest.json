@@ -1,0 +1,89 @@
+{
+  "name": "Portfolio Juan Pablo Rosas M.",
+  "short_name": "Yeipi",
+  "description": "Portfolio personal de Juan Pablo Rosas Martin, desarrollador full-stack con estilo Matrix",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#061708",
+  "theme_color": "#15ff00",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "education", "professional"],
+  "lang": "es-CL",
+  "icons": [
+    {
+      "src": "img/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Terminal",
+      "short_name": "Terminal",
+      "description": "Acceso directo a la terminal interactiva",
+      "url": "/#terminal",
+      "icons": [{ "src": "img/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Proyectos",
+      "short_name": "Proyectos",
+      "description": "Ver proyectos destacados",
+      "url": "/#projects",
+      "icons": [{ "src": "img/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "description": "Información de contacto",
+      "url": "/#contact",
+      "icons": [{ "src": "img/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "scope": "/",
+  "id": "portfolio-yeipi"
+} 

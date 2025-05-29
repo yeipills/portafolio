@@ -1,0 +1,12 @@
+<!-- favicon.svg - Diseño simple para tamaños pequeños -->
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo oscuro -->
+  <rect width="48" height="48" rx="8" fill="#061708"/>
+  
+  <!-- Borde estilo terminal -->
+  <rect x="4" y="4" width="40" height="40" rx="6" fill="none" stroke="#0f9d00" stroke-width="2"/>
+  
+  <!-- JP en el centro -->
+  <text x="24" y="32" font-family="Courier New, monospace" font-size="24" font-weight="bold" 
+        text-anchor="middle" fill="#15ff00">JP</text>
+</svg> 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Iconos PWA</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #061708;
+            color: #15ff00;
+            padding: 20px;
+        }
+        #output {
+            margin-top: 20px;
+        }
+        a {
+            color: #15ff00;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #0f9d00;
+            border-radius: 4px;
+        }
+        a:hover {
+            background: #0f9d00;
+            color: #061708;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de Iconos PWA</h1>
+    <canvas id="canvas"></canvas>
+    <div id="output"></div>
+    
+    <script>
+        // Tamaños requeridos
+        const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+        
+        // SVG base
+        const svgString = `
+            <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <!-- Fondo oscuro -->
+                <rect width="512" height="512" rx="64" fill="#061708"/>
+                
+                <!-- Borde estilo terminal -->
+                <rect x="32" y="32" width="448" height="448" rx="48" fill="none" stroke="#0f9d00" stroke-width="4"/>
+                
+                <!-- JP en el centro -->
+                <text x="256" y="300" font-family="Courier New, monospace" font-size="180" font-weight="bold" 
+                      text-anchor="middle" fill="#15ff00">JP</text>
+                
+                <!-- Prompt del terminal -->
+                <text x="256" y="140" font-family="Courier New, monospace" font-size="48" 
+                      text-anchor="middle" fill="#15ff00" opacity="0.7">&gt;_</text>
+                
+                <!-- Símbolo de código -->
+                <g transform="translate(256, 380)">
+                    <text font-family="Courier New, monospace" font-size="80" font-weight="bold" 
+                          fill="#15ff00" opacity="0.8" text-anchor="middle">
+                        <tspan>&lt;/&gt;</tspan>
+                    </text>
+                </g>
+            </svg>
+        `;
+        
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const output = document.getElementById('output');
+        
+        sizes.forEach(size => {
+            // Configurar canvas
+            canvas.width = size;
+            canvas.height = size;
+            
+            // Crear imagen desde SVG
+            const img = new Image();
+            const blob = new Blob([svgString], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+            
+            img.onload = function() {
+                ctx.clearRect(0, 0, size, size);
+                ctx.drawImage(img, 0, 0, size, size);
+                
+                // Convertir a PNG
+                canvas.toBlob(function(blob) {
+                    const a = document.createElement('a');
+                    a.download = `icon-${size}x${size}.png`;
+                    a.href = URL.createObjectURL(blob);
+                    a.textContent = `Descargar icon-${size}x${size}.png`;
+                    output.appendChild(a);
+                    output.appendChild(document.createElement('br'));
+                });
+                
+                URL.revokeObjectURL(url);
+            };
+            
+            img.src = url;
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio profesional de Juan Pablo Rosas Martin (Yeipi), Ingeniero en Computación e Informática especializado en desarrollo web full-stack y ciberseguridad">
+    <meta name="keywords" content="desarrollador web, full stack, ciberseguridad, pentesting, devops, ruby on rails, react, node.js, portfolio, programador, ingeniero informático, Chile, Yeipi">
+    <meta name="author" content="Juan Pablo Rosas Martin">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Juan Pablo Rosas M. - Portfolio Profesional">
+    <meta property="og:description" content="Ingeniero en Computación e Informática especializado en desarrollo web full-stack y ciberseguridad">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://portfolio.juanpablorosas.cl">
+    <meta property="og:image" content="https://portfolio.juanpablorosas.cl/img/profile.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Juan Pablo Rosas M. - Portfolio Profesional">
+    <meta name="twitter:description" content="Ingeniero en Computación e Informática especializado en desarrollo web full-stack y ciberseguridad">
+    <meta name="twitter:image" content="https://portfolio.juanpablorosas.cl/img/profile.jpg">
+    <meta name="theme-color" content="#00b894">
+    <!-- Seguridad -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <!-- Recursos -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icon-128x128.png">
+    <!-- Preload de estilos -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Nuevos estilos para componentes avanzados -->
+    <link rel="stylesheet" href="css/components.css">
+    <!-- Estilos para temas -->
+    <link rel="stylesheet" href="css/formal-theme.css">
+    <link rel="stylesheet" href="css/formal-theme-fixes.css">
+    <!-- Estilos para efectos visuales -->
+    <link rel="stylesheet" href="css/effects.css">
+    <title>Portfolio - Juan Pablo Rosas M. (Yeipi)</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Datos estructurados para SEO (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Juan Pablo Rosas Martin",
+      "alternateName": "Yeipi",
+      "jobTitle": "Ingeniero en Computación e Informática",
+      "description": "Especializado en desarrollo web full-stack y ciberseguridad",
+      "url": "https://portfolio.juanpablorosas.cl",
+      "sameAs": [
+        "https://github.com/yeipills",
+        "https://linkedin.com/in/juan-pablo-rosas-martin"
+      ],
+      "knowsAbout": ["Desarrollo Web", "Ciberseguridad", "Ruby on Rails", "React", "Node.js", "DevOps"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Concepción",
+        "addressCountry": "Chile"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Contenedores de efectos visuales -->
+    <div id="matrix-canvas" class="matrix-bg" aria-hidden="true"></div>
+    <div id="formal-particles" class="formal-bg" aria-hidden="true"></div>
+    <div id="page-matrix-glitch" aria-hidden="true"></div>
+    <!-- Línea de escaneo -->
+    <div class="scan-line" aria-hidden="true"></div>
+    <!-- Overlay para efectos -->
+    <div class="overlay" aria-hidden="true"></div>
+    
+    <!-- Anunciador para lectores de pantalla -->
+    <div id="a11y-announcer" class="sr-only" aria-live="polite"></div>
+    
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Volver al inicio de la página">↑</button>
+    
+    <main>
+        <div class="terminal-window" role="region" aria-label="Terminal interactiva, portfolio de Juan Pablo Rosas">
+            <header class="terminal-header">
+                <div class="terminal-buttons" aria-hidden="true">
+                    <div class="term-button close"></div>
+                    <div class="term-button minimize"></div>
+                    <div class="term-button maximize"></div>
+                </div>
+                <h1 class="terminal-title" id="terminal-title">dev@matrix:~/portfolio</h1>
+                <div></div>
+            </header>
+            
+            <!-- Barra de navegación estilo terminal -->
+            <nav class="terminal-nav" role="navigation" aria-label="Navegación principal">
+                <div class="nav-container">
+                    <ul class="nav-list">
+                        <li><a href="#profile" class="nav-link" data-section="profile">Perfil</a></li>
+                        <li><a href="#skills" class="nav-link" data-section="skills">Habilidades</a></li>
+                        <li><a href="#experience" class="nav-link" data-section="experience">Experiencia</a></li>
+                        <li><a href="#projects" class="nav-link" data-section="projects">Proyectos</a></li>
+                        <li><a href="#education" class="nav-link" data-section="education">Educación</a></li>
+                        <li><a href="#contact" class="nav-link" data-section="contact">Contacto</a></li>
+                    </ul>
+                    <div class="nav-controls">
+                        <button class="theme-toggle nav-button" id="theme-toggle" type="button" aria-label="Cambiar tema visual">Tema</button>
+                        <button class="language-toggle nav-button" id="language-toggle" type="button" aria-label="Cambiar idioma">ES | EN</button>
+                        <a href="cv/juan_pablo_rosas_cv.pdf" class="export-pdf nav-button" id="export-pdf" download aria-label="Descargar CV en formato PDF">CV.pdf</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <div class="terminal-body">
+                <div class="terminal-content">
+                    <div class="ascii-art matrix-only" aria-hidden="true">
+     ╔═══════════════════════════════════════════════╗
+     ║  ███████╗██╗   ██╗███████╗████████╗███████╗  ║
+     ║  ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝  ║
+     ║  ███████╗ ╚████╔╝ ███████╗   ██║   █████╗    ║
+     ║  ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝    ║
+     ║  ███████║   ██║   ███████║   ██║   ███████╗  ║
+     ║  ╚══════╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝  ║
+     ╠═══════════════════════════════════════════════╣
+     ║     ACCESO CONCEDIDO - NIVEL: PRIVILEGIADO    ║
+     ║     USUARIO: YEIPI - ID: QUANTUM-CORE         ║
+     ║     ESTADO: CONEXIÓN SEGURA ESTABLECIDA       ║
+     ╚═══════════════════════════════════════════════╝
+                    </div>
+                    
+                    <section aria-labelledby="access">
+                        <h2 class="section-title" id="access">// ACCESO CONCEDIDO</h2>
+                        <div class="typed-text" id="introduction">
+                            <p>Bienvenido al portfolio de <span class="shiny-text">Juan Pablo Rosas Martin</span>, Ingeniero en Computación e Informática.</p>
+                            <p>Especializado en desarrollo web full-stack y ciberseguridad.</p>
+                            <p>Localización: Concepción, Chile | Estado: Disponible para contratación</p>
+                        </div>
+                    </section>
+                    
+                    <section aria-labelledby="profile" id="profile-section">
+                        <h2 class="section-title" id="profile">// PERFIL PROFESIONAL</h2>
+                        
+                        <div class="profile-container">
+                            <div class="profile-photo-container">
+                                <img src="img/profile.jpg" alt="Juan Pablo Rosas Martin" class="profile-photo" id="profile-photo" width="150" height="150" loading="lazy">
+                            </div>
+                            
+                            <div class="profile-content">
+                                <p>Ingeniero en Computación e Informática especializado en desarrollo web full-stack y ciberseguridad.</p>
+                                <p>Experiencia creando soluciones tecnológicas innovadoras en entornos académicos y profesionales.</p>
+                                <p>Destacado por trabajo en equipos multidisciplinarios, comunicación técnica efectiva y adaptación rápida a nuevas tecnologías.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section aria-labelledby="competencies">
+                        <h2 class="section-title" id="competencies">// COMPETENCIAS PROFESIONALES</h2>
+                        <div class="competencies">
+                            <div class="competency">Resolución analítica de problemas</div>
+                            <div class="competency">Liderazgo de equipos técnicos</div>
+                            <div class="competency">Comunicación técnica efectiva</div>
+                            <div class="competency">Adaptabilidad tecnológica</div>
+                            <div class="competency">Gestión de proyectos</div>
+                            <div class="competency">Automatización de procesos</div>
+                        </div>
+                    </section>
+                    
+                    <!-- Carrusel de tecnologías -->
+                    <div class="tech-wall">
+                        <div class="tech-carousel">
+                            <div class="tech-item">
+                                <div class="tech-icon">🌐</div>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">💎</div>
+                                <span>Ruby</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">🐍</div>
+                                <span>Python</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">⚛️</div>
+                                <span>React</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">🚄</div>
+                                <span>Rails</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">🐳</div>
+                                <span>Docker</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">🔄</div>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">🔐</div>
+                                <span>Ciberseguridad</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <section aria-labelledby="skills" id="skills-section">
+                        <h2 class="section-title" id="skills">// HABILIDADES TÉCNICAS</h2>
+                        
+                        <!-- Acordeón de habilidades -->
+                        <div class="skills-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span class="skill-icon">💻</span>
+                                    <span class="skill-title">Desarrollo Frontend</span>
+                                    <span class="accordion-toggle">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li>JavaScript / TypeScript</li>
+                                        <li>React / React Native</li>
+                                        <li>HTML5 / CSS3 / SASS</li>
+                                        <li>Stimulus.js / Turbo</li>
+                                        <li>Responsive Design</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span class="skill-icon">🔧</span>
+                                    <span class="skill-title">Desarrollo Backend</span>
+                                    <span class="accordion-toggle">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li>Ruby on Rails</li>
+                                        <li>Node.js / Express</li>
+                                        <li>Python / Flask</li>
+                                        <li>RESTful APIs</li>
+                                        <li>PostgreSQL / MySQL</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span class="skill-icon">🔒</span>
+                                    <span class="skill-title">Ciberseguridad</span>
+                                    <span class="accordion-toggle">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li>Pentesting</li>
+                                        <li>Análisis de vulnerabilidades</li>
+                                        <li>Auditoría de seguridad</li>
+                                        <li>Criptografía</li>
+                                        <li>Seguridad en aplicaciones web</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span class="skill-icon">🚀</span>
+                                    <span class="skill-title">DevOps</span>
+                                    <span class="accordion-toggle">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li>Docker / Containerización</li>
+                                        <li>CI/CD Pipelines</li>
+                                        <li>Git / Control de versiones</li>
+                                        <li>Linux / Bash scripting</li>
+                                        <li>Monitoreo y logging</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section aria-labelledby="experience" id="experience-section">
+                        <h2 class="section-title" id="experience">// EXPERIENCIA PROFESIONAL</h2>
+                        
+                        <div class="experience-card">
+                            <h3 class="experience-title">AYUDANTE ACADÉMICO</h3>
+                            <div class="experience-date">03/2023 - 04/2025</div>
+                            <div class="experience-company">Universidad del Biobío, Concepción, Chile</div>
+                            <ul class="experience-list">
+                                <li>Impartí asignaturas: Introducción a la Ingeniería, Ingeniería de Software, Taller de Desarrollo, Arquitectura de Computadores</li>
+                                <li>Implementé metodologías didácticas que mejoraron tasas de aprobación en un 25%</li>
+                                <li>Desarrollé guías prácticas basadas en casos reales optimizando aprendizaje aplicado</li>
+                                <li>Implementé sistema automatizado de retroalimentación reduciendo tiempo de evaluación en 40%</li>
+                            </ul>
+                            <div class="tags" aria-label="Tecnologías">
+                                <span class="tag">GitHub</span>
+                                <span class="tag">Metodologías Ágiles</span>
+                                <span class="tag">Evaluación Automatizada</span>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-card">
+                            <h3 class="experience-title">CO-FUNDADOR Y COORDINADOR OPENSOURCE UBB</h3>
+                            <div class="experience-date">01/2022 - Presente</div>
+                            <div class="experience-company">Universidad del Biobío, Concepción, Chile</div>
+                            <ul class="experience-list">
+                                <li>Fundé organización que creció a 40+ miembros en dos años</li>
+                                <li>Organicé 15+ eventos educativos con 500+ asistentes</li>
+                                <li>Establecí alianzas con empresas generando 5 prácticas profesionales</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="experience-card">
+                            <h3 class="experience-title">DESARROLLADOR FULL-STACK - PRÁCTICA PROFESIONAL</h3>
+                            <div class="experience-date">01/2024 - 03/2024</div>
+                            <div class="experience-company">INDAMA, Concepción, Chile</div>
+                            <ul class="experience-list">
+                                <li>Implementé sistema de gestión digital reduciendo tiempo de procesamiento documental en 60%</li>
+                                <li>Diseñé plataforma que eliminó duplicación de datos y optimizó flujo de trabajo interdepartamental</li>
+                            </ul>
+                            <div class="tags" aria-label="Tecnologías">
+                                <span class="tag">Firebase</span>
+                                <span class="tag">React Native</span>
+                                <span class="tag">Expo</span>
+                                <span class="tag">Redux</span>
+                                <span class="tag">Node.js</span>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-card">
+                            <h3 class="experience-title">ANALISTA DE DATOS - PRÁCTICA PROFESIONAL</h3>
+                            <div class="experience-date">07/2022 - 09/2022</div>
+                            <div class="experience-company">Municipalidad de Concepción, Chile</div>
+                            <ul class="experience-list">
+                                <li>Desarrollé dashboard interactivo reduciendo en 75% tiempo de cálculo de horas extras y salarios</li>
+                                <li>Automaticé procesos críticos eliminando errores humanos y aumentando eficiencia en 35%</li>
+                                <li>Implementé visualizaciones de datos mejorando toma de decisiones sobre recursos humanos</li>
+                            </ul>
+                            <div class="tags" aria-label="Tecnologías">
+                                <span class="tag">Excel VBA</span>
+                                <span class="tag">Power BI</span>
+                                <span class="tag">Análisis de Datos</span>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section aria-labelledby="projects" id="projects-section">
+                        <h2 class="section-title" id="projects">// PROYECTOS DESTACADOS</h2>
+                        
+                        <div class="projects-grid">
+                            <!-- Proyecto 1: Versión mejorada con imagen -->
+                            <article class="project-card">
+                                <!-- Comentado temporalmente: Sección de imagen placeholder
+                                <div class="project-image-container">
+                                    <img src="img/placeholder-project.jpg" alt="Plataforma Educativa de Ciberseguridad" class="project-image">
+                                    <div class="project-overlay">
+                                        <div class="project-links">
+                                            <a href="#" target="_blank" class="project-link">🔗 GitHub</a>
+                                            <a href="#" target="_blank" class="project-link">🚀 Demo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="project-info">
+                                    <h3 class="project-title">🔒 Plataforma Educativa de Ciberseguridad</h3>
+                                    <div class="project-status">En desarrollo</div>
+                                    <div class="project-desc">Plataforma web educativa con laboratorios interactivos, sistema de gestión de cursos y entornos especializados para pentesting.</div>
+                                    <div class="tags" aria-label="Tecnologías utilizadas">
+                                        <span class="tag">Ruby on Rails</span>
+                                        <span class="tag">PostgreSQL</span>
+                                        <span class="tag">Docker</span>
+                                        <span class="tag">TailwindCSS</span>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <!-- Proyecto 2: Versión mejorada con imagen -->
+                            <article class="project-card">
+                                <!-- Comentado temporalmente: Sección de imagen placeholder
+                                <div class="project-image-container">
+                                    <img src="img/placeholder-project.jpg" alt="Sistema de Gestión Digital" class="project-image">
+                                    <div class="project-overlay">
+                                        <div class="project-links">
+                                            <a href="#" target="_blank" class="project-link">🔗 GitHub</a>
+                                            <a href="#" target="_blank" class="project-link">🚀 Demo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="project-info">
+                                    <h3 class="project-title">📊 Sistema de Gestión Digital</h3>
+                                    <div class="project-status">Completado</div>
+                                    <div class="project-desc">Aplicación móvil para gestión de documentos que reduce tiempos de procesamiento y optimiza flujos de trabajo interdepartamentales.</div>
+                                    <div class="tags" aria-label="Tecnologías utilizadas">
+                                        <span class="tag">React Native</span>
+                                        <span class="tag">Firebase</span>
+                                        <span class="tag">Redux</span>
+                                        <span class="tag">Node.js</span>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <!-- Proyecto 3: Versión mejorada con imagen -->
+                            <article class="project-card">
+                                <!-- Comentado temporalmente: Sección de imagen placeholder
+                                <div class="project-image-container">
+                                    <img src="img/placeholder-project.jpg" alt="Dashboard Recursos Humanos" class="project-image">
+                                    <div class="project-overlay">
+                                        <div class="project-links">
+                                            <a href="#" target="_blank" class="project-link">🔗 GitHub</a>
+                                            <a href="#" target="_blank" class="project-link">🚀 Demo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="project-info">
+                                    <h3 class="project-title">🖥️ Dashboard Recursos Humanos</h3>
+                                    <div class="project-status">Completado</div>
+                                    <div class="project-desc">Dashboard interactivo para cálculo de horas extras y salarios con automatización de procesos y visualizaciones avanzadas.</div>
+                                    <div class="tags" aria-label="Tecnologías utilizadas">
+                                        <span class="tag">Excel VBA</span>
+                                        <span class="tag">Power BI</span>
+                                        <span class="tag">Análisis de Datos</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    
+                    <section aria-labelledby="education" id="education-section">
+                        <h2 class="section-title" id="education">// EDUCACIÓN</h2>
+                        <p>🎓 <strong>Ingeniería en Computación e Informática</strong> - Universidad del Biobío, Concepción, Chile (2020-2024)</p>
+                        <p>📚 <strong>Certificación Huawei - Fiber to the Home (FTTH)</strong> (2023)</p>
+                        <p>📊 <strong>Certificación Huawei - Mobile Broadband (MBB)</strong> (2023)</p>
+                    </section>
+                    
+                    <section aria-labelledby="contact" id="contact-section">
+                        <h2 class="section-title" id="contact">// CONTACTO</h2>
+                        
+                        <!-- Formulario de contacto mejorado -->
+                        <div class="contact-container">
+                            <div class="contact-info">
+                                <h3 class="contact-header">¿Tienes un proyecto en mente?</h3>
+                                <p>Contáctame y hablemos sobre cómo puedo ayudarte a llevarlo a cabo.</p>
+                                
+                                <div class="contact-detail">
+                                    <span class="contact-icon">📧</span>
+                                    <a href="mailto:juanpablorosasmartin@gmail.com" class="contact-link">juanpablorosasmartin@gmail.com</a>
+                                </div>
+                                
+                                <div class="contact-detail">
+                                    <span class="contact-icon">🐙</span>
+                                    <a href="https://github.com/yeipills" target="_blank" rel="noopener" class="contact-link">github.com/yeipills</a>
+                                </div>
+                                
+                                <div class="contact-detail">
+                                    <span class="contact-icon">🔗</span>
+                                    <a href="https://linkedin.com/in/juan-pablo-rosas-martin" target="_blank" rel="noopener" class="contact-link">linkedin.com/in/juan-pablo-rosas-martin</a>
+                                </div>
+                                
+                                <div class="contact-detail">
+                                    <span class="contact-icon">📞</span>
+                                    <a href="tel:+56969030631" class="contact-link">+56 9 6903 0631</a>
+                                </div>
+                                
+                                <div class="contact-detail">
+                                    <span class="contact-icon">📍</span>
+                                    <span>Concepción, Chile</span>
+                                </div>
+                            </div>
+                            
+                            <form id="contact-form" class="contact-form">
+                                <div class="form-group">
+                                    <input type="text" id="name" name="name" placeholder="Nombre" required class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" placeholder="Email" required class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="message" name="message" placeholder="Mensaje" rows="5" required class="form-input"></textarea>
+                                </div>
+                                <button type="submit" class="form-button">Enviar Mensaje</button>
+                                <div id="form-status" class="form-status hidden"></div>
+                            </form>
+                        </div>
+                        
+                        <p class="status-message success" role="status">
+                            [ESTADO: DISPONIBLE PARA OPORTUNIDADES LABORALES]
+                        </p>
+                    </section>
+                    
+                    <div class="console-input">
+                        <span class="prompt" aria-hidden="true">dev@matrix:~/portfolio$</span>
+                        <label for="terminal-input" class="sr-only">Ingrese un comando:</label>
+                        <input type="text" class="input-field" id="terminal-input" 
+                            placeholder="Escribe 'help' para ver comandos disponibles..." 
+                            aria-label="Terminal interactiva. Escribe help para ver comandos disponibles." 
+                            autocomplete="off">
+                    </div>
+                    
+                    <!-- Atajos de teclado -->
+                    <div class="keyboard-shortcuts" aria-label="Atajos de teclado">
+                        <ul class="shortcut-list">
+                            <li><kbd>↑</kbd><kbd>↓</kbd> Navegar historial</li>
+                            <li><kbd>Tab</kbd> Autocompletar</li>
+                            <li><kbd>↑↑↓↓←→←→ba</kbd> Código Konami</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Configuración de Google Analytics (opcional) -->
+    <!-- Para habilitar Analytics, agrega antes de main.js: -->
+    <!-- <script>window.GA_MEASUREMENT_ID = 'G-TU-ID-AQUI';</script> -->
+    
+    <!-- Scripts principales -->
+    <script type="module" src="js/main.js"></script>
+    
+    <!-- Service Worker para PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('js/sw.js')
+                    .then(registration => {
+                        console.log('SW registrado:', registration);
+                    })
+                    .catch(error => {
+                        console.log('SW registro falló:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

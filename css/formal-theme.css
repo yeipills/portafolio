@@ -1,0 +1,545 @@
+/* =========================================
+   Estilos para el Tema Formal Mejorado
+   ========================================= */
+
+/* Configuración de fondo para el tema formal */
+#formal-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  display: none;
+}
+
+body.formal-theme #formal-particles {
+  display: block;
+}
+
+/* Estilos base mejorados para el tema formal */
+body.formal-theme {
+  background: linear-gradient(135deg, #edf1f7 0%, #e1e8f5 100%); /* Gradiente más visible */
+  color: var(--formal-dark);
+  transition: background-color 0.7s ease, color 0.7s ease;
+  position: relative;
+  overflow-x: hidden;
+  /* Asegurar que el fondo cubra toda la página */
+  margin: 0;
+  padding: 0;
+}
+
+/* Arreglar problema de la barra blanca y mejorar visibilidad del patrón */
+body.formal-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(30deg, rgba(41, 128, 185, 0.07) 12%, transparent 12.5%, transparent 87%, rgba(41, 128, 185, 0.07) 87.5%, rgba(41, 128, 185, 0.07)),
+    linear-gradient(150deg, rgba(41, 128, 185, 0.07) 12%, transparent 12.5%, transparent 87%, rgba(41, 128, 185, 0.07) 87.5%, rgba(41, 128, 185, 0.07)),
+    linear-gradient(30deg, rgba(52, 152, 219, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(52, 152, 219, 0.05) 87.5%, rgba(52, 152, 219, 0.05)),
+    linear-gradient(150deg, rgba(52, 152, 219, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(52, 152, 219, 0.05) 87.5%, rgba(52, 152, 219, 0.05));
+  background-size: 60px 100px; /* Patrón más pequeño y denso */
+  background-position: 0 0, 0 0, 30px 50px, 30px 50px;
+  opacity: 0.7; /* Mayor opacidad */
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Añadimos una capa de puntos sutiles para dar más textura */
+body.formal-theme::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(41, 128, 185, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Transiciones más suaves */
+body.formal-theme * {
+  transition: background-color 0.4s ease, 
+              color 0.4s ease, 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease,
+              transform 0.4s ease;
+}
+
+/* Terminal window mejorada */
+body.formal-theme .terminal-window {
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0 10px 30px rgba(41, 128, 185, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+body.formal-theme .terminal-window:hover {
+  box-shadow: 0 15px 40px rgba(41, 128, 185, 0.12);
+  transform: translateY(-5px);
+}
+
+/* Header mejorado */
+body.formal-theme .terminal-header {
+  background: linear-gradient(135deg, var(--formal-primary) 0%, var(--formal-secondary) 100%);
+  border-bottom: none;
+  padding: 12px 20px;
+  position: relative;
+}
+
+body.formal-theme .terminal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, 
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 100%);
+}
+
+body.formal-theme .terminal-title {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  color: white;
+  animation: none;
+}
+
+/* Botones de ventana mejorados */
+body.formal-theme .terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+body.formal-theme .term-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+body.formal-theme .term-button:hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+/* Navegación mejorada */
+body.formal-theme .terminal-nav {
+  background: linear-gradient(135deg, var(--formal-primary) 0%, var(--formal-secondary) 100%);
+  border-bottom: none;
+  padding: 10px 20px;
+}
+
+body.formal-theme .nav-list {
+  display: flex;
+  gap: 15px;
+}
+
+body.formal-theme .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+body.formal-theme .nav-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.formal-theme .nav-link.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+body.formal-theme .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+body.formal-theme .nav-link:hover::after,
+body.formal-theme .nav-link.active::after {
+  width: 100%;
+}
+
+/* Botones de navegación mejorados */
+body.formal-theme .nav-button {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+body.formal-theme .nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+body.formal-theme .nav-button:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Contenido mejorado */
+body.formal-theme .terminal-body {
+  padding: 30px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body.formal-theme .terminal-content {
+  animation: none;
+  line-height: 1.6;
+}
+
+/* Títulos mejorados */
+body.formal-theme .section-title {
+  color: var(--formal-primary);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin: 30px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(41, 128, 185, 0.1);
+  position: relative;
+}
+
+/* Línea decorativa debajo de los títulos */
+body.formal-theme .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: var(--formal-secondary);
+  transition: width 0.5s ease;
+}
+
+body.formal-theme .section-title:hover::after {
+  width: 120px;
+}
+
+/* Foto de perfil mejorada */
+body.formal-theme .profile-container {
+  margin: 30px 0;
+}
+
+body.formal-theme .profile-photo-container {
+  border: none;
+  box-shadow: 0 8px 20px rgba(41, 128, 185, 0.15);
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+body.formal-theme .profile-photo-container:hover {
+  transform: scale(1.05) rotate(3deg);
+  box-shadow: 0 12px 25px rgba(41, 128, 185, 0.25);
+}
+
+body.formal-theme .profile-content {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Tarjetas de experiencia mejoradas */
+body.formal-theme .experience-card {
+  border-left: 3px solid var(--formal-secondary);
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 5px 15px rgba(41, 128, 185, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.formal-theme .experience-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 20px rgba(41, 128, 185, 0.1);
+}
+
+body.formal-theme .experience-title {
+  color: var(--formal-primary);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+body.formal-theme .experience-date {
+  color: var(--formal-secondary);
+  font-style: italic;
+}
+
+body.formal-theme .experience-company {
+  color: var(--formal-dark);
+  font-weight: 500;
+}
+
+/* Tarjetas de proyecto mejoradas */
+body.formal-theme .project-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(41, 128, 185, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.formal-theme .project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(41, 128, 185, 0.15);
+}
+
+body.formal-theme .project-title {
+  color: var(--formal-primary);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Tags mejorados */
+body.formal-theme .tag {
+  background-color: rgba(41, 128, 185, 0.08);
+  color: var(--formal-secondary);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+body.formal-theme .tag:hover {
+  background-color: rgba(41, 128, 185, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Formulario de contacto mejorado */
+body.formal-theme .form-input {
+  padding: 12px 15px;
+  border: 1px solid rgba(41, 128, 185, 0.2);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+body.formal-theme .form-input:focus {
+  border-color: var(--formal-secondary);
+  box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
+  outline: none;
+}
+
+body.formal-theme .form-button {
+  background: linear-gradient(135deg, var(--formal-primary) 0%, var(--formal-secondary) 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+body.formal-theme .form-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(41, 128, 185, 0.2);
+}
+
+body.formal-theme .form-button:active {
+  transform: translateY(-1px);
+}
+
+/* Efectos de shiny text para tema formal */
+body.formal-theme .shiny-text {
+  background: linear-gradient(135deg, var(--formal-primary) 25%, #ffffff 50%, var(--formal-secondary) 75%);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+/* Acordeón mejorado */
+body.formal-theme .accordion-item {
+  border: 1px solid rgba(41, 128, 185, 0.15);
+  background-color: white;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(41, 128, 185, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+body.formal-theme .accordion-item:hover {
+  box-shadow: 0 5px 15px rgba(41, 128, 185, 0.1);
+}
+
+body.formal-theme .accordion-header {
+  background-color: rgba(41, 128, 185, 0.03);
+  padding: 15px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--formal-primary);
+  transition: background-color 0.3s ease;
+}
+
+body.formal-theme .accordion-header:hover {
+  background-color: rgba(41, 128, 185, 0.07);
+}
+
+body.formal-theme .accordion-item.active .accordion-header {
+  background-color: rgba(41, 128, 185, 0.1);
+  border-bottom: 1px solid rgba(41, 128, 185, 0.15);
+}
+
+body.formal-theme .accordion-toggle {
+  color: var(--formal-secondary);
+  transition: transform 0.3s ease;
+}
+
+body.formal-theme .accordion-content {
+  padding: 0 20px;
+  line-height: 1.6;
+}
+
+body.formal-theme .accordion-item.active .accordion-content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* Competencias mejoradas */
+body.formal-theme .competency {
+  background-color: white;
+  color: var(--formal-primary);
+  border: 1px solid rgba(41, 128, 185, 0.15);
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(41, 128, 185, 0.05);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+body.formal-theme .competency:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(41, 128, 185, 0.1);
+  background-color: rgba(41, 128, 185, 0.03);
+}
+
+/* Scrollbar personalizada */
+body.formal-theme .terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.formal-theme .terminal-body::-webkit-scrollbar-track {
+  background: rgba(41, 128, 185, 0.05);
+  border-radius: 4px;
+}
+
+body.formal-theme .terminal-body::-webkit-scrollbar-thumb {
+  background-color: rgba(41, 128, 185, 0.3);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+body.formal-theme .terminal-body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(41, 128, 185, 0.5);
+}
+
+/* Carrusel de tecnologías */
+body.formal-theme .tech-wall {
+  position: relative;
+  overflow: hidden;
+  margin: 25px 0;
+  padding: 15px 0;
+}
+
+body.formal-theme .tech-wall::before,
+body.formal-theme .tech-wall::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+body.formal-theme .tech-wall::before {
+  left: 0;
+  background: linear-gradient(to right, var(--formal-light) 0%, rgba(237, 241, 247, 0) 100%);
+}
+
+body.formal-theme .tech-wall::after {
+  right: 0;
+  background: linear-gradient(to left, var(--formal-light) 0%, rgba(237, 241, 247, 0) 100%);
+}
+
+body.formal-theme .tech-item {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgba(41, 128, 185, 0.15);
+  color: var(--formal-dark);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+body.formal-theme .tech-item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(41, 128, 185, 0.2);
+  color: var(--formal-primary);
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  body.formal-theme .terminal-body {
+    padding: 20px;
+  }
+  
+  body.formal-theme .terminal-header,
+  body.formal-theme .terminal-nav {
+    padding: 8px 15px;
+  }
+  
+  body.formal-theme .section-title {
+    font-size: 20px;
+  }
+}
+
+/* Estilos adicionales para la red profesional */
+.formal-network-container {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+body.formal-theme .formal-network-container {
+  opacity: 1;
+}
+
+/* Ocultar elementos específicos del tema Matrix */
+body.formal-theme .matrix-only {
+    display: none;
+} 

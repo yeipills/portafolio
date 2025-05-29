@@ -1,0 +1,123 @@
+/* Efectos Visuales */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background-color: transparent;
+}
+
+#formal-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background-color: rgba(26, 82, 118, 0.15);
+}
+
+#page-matrix-glitch {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    display: none;
+    border: 5px solid red; /* Borde de depuración */
+}
+
+/* Efectos de tema Matrix */
+.matrix-column {
+    position: absolute;
+    font-family: 'Matrix Code NFI', monospace;
+    font-size: 20px;
+    line-height: 26px;
+    color: var(--green-high-contrast);
+    text-shadow: 
+        0 0 5px var(--green),
+        0 0 10px var(--green),
+        0 0 15px var(--green-high-contrast),
+        0 0 20px var(--darkgreen);
+    white-space: nowrap;
+    transform-origin: 50% 0;
+    animation: matrixRain 3s linear infinite;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.matrix-column.lite {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+@keyframes matrixRain {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    5% {
+        opacity: 0.8;
+    }
+    95% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+}
+
+.matrix-column span {
+    display: inline-block;
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 5px var(--green),
+            0 0 10px var(--green);
+    }
+    50% {
+        text-shadow: 
+            0 0 5px var(--green),
+            0 0 10px var(--green),
+            0 0 15px var(--green-high-contrast),
+            0 0 20px var(--green-high-contrast);
+    }
+}
+
+/* Efectos de tema Formal */
+.formal-bg {
+    background: var(--formal-light);
+    opacity: 0.1;
+}
+
+/* Transiciones suaves entre temas */
+.theme-transition {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Transición de idioma */
+.language-transition {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Optimizaciones para dispositivos de bajo rendimiento */
+@media (prefers-reduced-motion: reduce) {
+    .matrix-column {
+        animation-duration: 3s;
+    }
+    
+    .theme-transition {
+        transition: none;
+    }
+}

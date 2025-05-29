@@ -1,0 +1,692 @@
+/* =========================================
+   Nuevos Componentes Avanzados
+   ========================================= */
+
+/* Animaciones de entrada secuenciales */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Aplicar animaciones a secciones en cascada */
+section {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.profile-container, .profile-photo, .competencies,
+.tech-wall, .experience-card, .project-card,
+.contact-container, .form-group {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Retrasar animaciones para crear efecto secuencial */
+#profile-section { animation-delay: 0.1s; }
+.profile-container { animation-delay: 0.2s; }
+.profile-photo { animation-delay: 0.3s; animation-name: scaleIn; }
+#competencies { animation-delay: 0.4s; }
+.competencies { animation-delay: 0.5s; }
+.tech-wall { animation-delay: 0.6s; }
+#skills-section { animation-delay: 0.7s; }
+#experience-section { animation-delay: 0.8s; }
+.experience-card:nth-child(1) { animation-delay: 0.9s; }
+.experience-card:nth-child(2) { animation-delay: 1.0s; }
+.experience-card:nth-child(3) { animation-delay: 1.1s; }
+.experience-card:nth-child(4) { animation-delay: 1.2s; }
+#projects-section { animation-delay: 1.3s; }
+.project-card:nth-child(1) { animation-delay: 1.4s; }
+.project-card:nth-child(2) { animation-delay: 1.5s; }
+.project-card:nth-child(3) { animation-delay: 1.6s; }
+#education-section { animation-delay: 1.7s; }
+#contact-section { animation-delay: 1.8s; }
+.contact-container { animation-delay: 1.9s; }
+.form-group:nth-child(1) { animation-delay: 2.0s; }
+.form-group:nth-child(2) { animation-delay: 2.1s; }
+.form-group:nth-child(3) { animation-delay: 2.2s; }
+
+/* Efecto de texto brillante */
+.shiny-text {
+  background: linear-gradient(135deg, var(--green) 25%, #ffffff 50%, var(--green) 75%);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+/* Versión formal del texto brillante */
+body.formal-theme .shiny-text {
+  background: linear-gradient(135deg, var(--formal-primary) 25%, #ffffff 50%, var(--formal-secondary) 75%);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 100% 50%; }
+  30%, 70% { background-position: 0% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Contenedor para efectos Matrix Glitch - Versión mejorada */
+#matrix-glitch {
+  display: none; /* Ocultar el contenedor original */
+}
+
+/* Efecto Matrix como fondo de página */
+#page-matrix-glitch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Detrás de todo el contenido */
+  pointer-events: none; /* No intercepta eventos del mouse */
+  overflow: hidden;
+}
+
+/* Ocultar en tema formal */
+body.formal-theme #page-matrix-glitch {
+  display: none;
+}
+
+/* Carrusel de tecnologías */
+.tech-wall {
+  position: relative;
+  overflow: hidden;
+  padding: 15px 0;
+  margin: 20px 0;
+}
+
+.tech-wall::before,
+.tech-wall::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-wall::before {
+  left: 0;
+  background: linear-gradient(to right, var(--matrix-bg) 20%, rgba(6, 23, 8, 0) 100%);
+}
+
+.tech-wall::after {
+  right: 0;
+  background: linear-gradient(to left, var(--matrix-bg) 20%, rgba(6, 23, 8, 0) 100%);
+}
+
+/* Ajustes tema formal para carrusel */
+body.formal-theme .tech-wall::before {
+  background: linear-gradient(to right, var(--formal-light) 0%, transparent 100%);
+}
+
+body.formal-theme .tech-wall::after {
+  background: linear-gradient(to left, var(--formal-light) 0%, transparent 100%);
+}
+
+.tech-carousel {
+  display: flex;
+  width: max-content;
+  /* La animación se configura dinámicamente desde JS */
+}
+
+.tech-carousel:hover {
+  animation-play-state: paused;
+}
+
+/* Duplicar los items para crear un carrusel infinito */
+.tech-carousel::after {
+  content: "";
+  display: block;
+  width: 20px; /* Espacio entre repeticiones */
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 15px;
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.tech-item:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+body.formal-theme .tech-item {
+  color: var(--formal-dark);
+}
+
+.tech-icon img {
+  height: 24px;
+  width: auto;
+}
+
+/* Animación scroll original - reemplazada por JS dinámico
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+*/
+
+/* Acordeón para habilidades técnicas */
+.skills-accordion {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  position: relative;
+}
+
+.accordion-item {
+  margin-bottom: 0;
+  border: 1px solid var(--darkgreen);
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: rgba(15, 30, 15, 0.4);
+  position: relative;
+  transition: all 0.3s ease;
+  height: fit-content; /* Para evitar que todos tengan la misma altura */
+}
+
+/* Estilos para tema formal */
+body.formal-theme .accordion-item {
+  border: 1px solid var(--formal-border);
+  background-color: var(--formal-gray);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Elemento activo */
+.accordion-item.active {
+  border-color: var(--green);
+  box-shadow: 0 0 10px rgba(21, 255, 0, 0.2);
+  z-index: 2;
+}
+
+body.formal-theme .accordion-item.active {
+  border-color: var(--formal-primary);
+  box-shadow: 0 0 10px rgba(41, 128, 185, 0.2);
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  color: var(--green-high-contrast);
+  position: relative;
+}
+
+body.formal-theme .accordion-header {
+  color: var(--formal-primary);
+}
+
+.skill-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.skill-title {
+  flex-grow: 1;
+  font-weight: bold;
+}
+
+.accordion-toggle {
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+}
+
+.accordion-item.active .accordion-toggle {
+  transform: rotate(45deg);
+}
+
+body.formal-theme .accordion-toggle {
+  color: var(--formal-primary);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.2s ease;
+  padding: 0 15px;
+  opacity: 0;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 300px;
+  padding: 15px;
+  background-color: rgba(10, 20, 10, 0.8);
+  opacity: 1;
+}
+
+body.formal-theme .accordion-item.active .accordion-content {
+  background-color: #f5f9fb;
+}
+
+body.formal-theme .accordion-content {
+  color: var(--formal-dark);
+}
+
+.accordion-content ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.accordion-content li {
+  margin-bottom: 5px;
+  position: relative;
+}
+
+/* Tarjetas de proyecto mejoradas */
+.project-card {
+  border: 1px solid var(--darkgreen);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: rgba(15, 30, 15, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(21, 255, 0, 0.15);
+}
+
+body.formal-theme .project-card {
+  border: 1px solid var(--formal-border);
+  background-color: white;
+}
+
+body.formal-theme .project-card:hover {
+  box-shadow: 0 10px 20px rgba(41, 128, 185, 0.15);
+}
+
+.project-image-container {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 23, 8, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+body.formal-theme .project-overlay {
+  background: rgba(26, 82, 118, 0.7);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+
+.project-link {
+  padding: 8px 15px;
+  background: var(--green);
+  color: var(--matrix-bg);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform 0.2s;
+}
+
+body.formal-theme .project-link {
+  background: var(--formal-primary);
+  color: white;
+}
+
+.project-link:hover {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 15px;
+}
+
+.project-status {
+  display: inline-block;
+  padding: 3px 8px;
+  background: rgba(15, 157, 0, 0.2);
+  border: 1px solid var(--darkgreen);
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: var(--green);
+}
+
+body.formal-theme .project-status {
+  background: rgba(41, 128, 185, 0.1);
+  border: 1px solid var(--formal-border);
+  color: var(--formal-secondary);
+}
+
+/* Formulario de contacto */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.contact-info {
+  color: var(--contrast-text);
+}
+
+body.formal-theme .contact-info {
+  color: var(--formal-dark);
+}
+
+.contact-header {
+  color: var(--green-high-contrast);
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+body.formal-theme .contact-header {
+  color: var(--formal-primary);
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.contact-icon {
+  font-size: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(15, 30, 15, 0.4);
+  border: 1px solid var(--darkgreen);
+  color: var(--contrast-text);
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  resize: vertical;
+}
+
+body.formal-theme .form-input {
+  background: white;
+  border: 1px solid var(--formal-border);
+  color: var(--formal-dark);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(21, 255, 0, 0.2);
+}
+
+body.formal-theme .form-input:focus {
+  border-color: var(--formal-secondary);
+  box-shadow: 0 0 0 2px rgba(41, 128, 185, 0.2);
+}
+
+.form-button {
+  padding: 12px 20px;
+  background: rgba(15, 157, 0, 0.2);
+  color: var(--green-high-contrast);
+  border: 1px solid var(--darkgreen);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+body.formal-theme .form-button {
+  background: var(--formal-primary);
+  color: white;
+  border: none;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.form-button:hover {
+  background: rgba(15, 157, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+body.formal-theme .form-button:hover {
+  background: var(--formal-secondary);
+}
+
+.form-status {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.form-status.hidden {
+  display: none;
+}
+
+.form-status.loading {
+  background-color: rgba(255, 187, 0, 0.1);
+  border: 1px solid #ffbb00;
+  color: #ffbb00;
+}
+
+.form-status.success {
+  background-color: rgba(21, 255, 0, 0.1);
+  border: 1px solid var(--green);
+  color: var(--green-high-contrast);
+}
+
+.form-status.error {
+  background-color: rgba(220, 50, 47, 0.1);
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.form-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Tema formal */
+body.formal-theme .form-status.loading {
+  background-color: rgba(52, 152, 219, 0.1);
+  border: 1px solid var(--formal-highlight);
+  color: var(--formal-highlight);
+}
+
+body.formal-theme .form-status.success {
+  background-color: rgba(46, 204, 113, 0.1);
+  border: 1px solid #2ecc71;
+  color: #27ae60;
+}
+
+body.formal-theme .form-status.error {
+  background-color: rgba(231, 76, 60, 0.1);
+  border: 1px solid #e74c3c;
+  color: #c0392b;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Navegación mejorada */
+.terminal-nav {
+  position: sticky;
+  top: 0;
+  transition: padding 0.3s, box-shadow 0.3s;
+  z-index: 100;
+}
+
+.terminal-nav.scrolled {
+  padding: 5px 16px;
+  box-shadow: 0 2px 15px rgba(21, 255, 0, 0.15);
+  background-color: rgba(6, 23, 8, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+body.formal-theme .terminal-nav.scrolled {
+  box-shadow: 0 2px 15px rgba(41, 128, 185, 0.15);
+  background-color: var(--formal-primary);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--green);
+  transition: width 0.3s;
+}
+
+body.formal-theme .nav-link::after {
+  background-color: white;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Estado offline */
+.status-message.offline {
+  background: rgba(255, 187, 0, 0.1);
+  border: 1px solid #ffbb00;
+  color: #ffbb00;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+body.formal-theme .status-message.offline {
+  background: rgba(243, 156, 18, 0.1);
+  border: 1px solid #f39c12;
+  color: #d35400;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skills-accordion {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Botón de tema destacado */
+.highlight-button {
+    animation: pulse-highlight 2s infinite;
+    position: relative;
+}
+
+.highlight-button::after {
+    content: '🔄';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+}
+
+@keyframes pulse-highlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+body.formal-theme .highlight-button {
+    background-color: var(--formal-highlight) !important;
+    border-color: var(--formal-highlight) !important;
+    color: white !important;
+} 
