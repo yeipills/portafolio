@@ -84,8 +84,22 @@ body:not(.content-loaded) {
 }
 
 /* Asegurar que el cursor vuelva a normal después de cargar */
-body.content-loaded {
-    cursor: default;
+body.content-loaded,
+body.content-loaded * {
+    cursor: default !important;
+}
+
+/* Restaurar cursors específicos después de cargar */
+body.content-loaded .nav-link,
+body.content-loaded .form-button,
+body.content-loaded .nav-button,
+body.content-loaded .back-to-top,
+body.content-loaded .accordion-header,
+body.content-loaded .contact-link,
+body.content-loaded .project-link,
+body.content-loaded a,
+body.content-loaded button {
+    cursor: pointer !important;
 }
 
 body.content-loaded .loading-overlay {
