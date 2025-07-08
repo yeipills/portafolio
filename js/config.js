@@ -43,7 +43,7 @@ const config = {
         'hack': true
     },
     language: 'es',
-    scrollOffset: 80
+    scrollOffset: 100
 };
 
 export default config; 

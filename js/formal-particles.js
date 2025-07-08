@@ -66,21 +66,37 @@ const FormalParticles = {
     },
     
     cleanup() {
-        if (this.canvas && this.canvas.parentNode) {
-            this.canvas.parentNode.removeChild(this.canvas);
-        }
+        console.log("Limpiando efectos formales...");
+        
+        // Detener la animación
+        this.active = false;
         
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
+        }
+        
+        // Limpiar el canvas
+        if (this.canvas) {
+            if (this.ctx) {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+            
+            if (this.canvas.parentNode) {
+                this.canvas.parentNode.removeChild(this.canvas);
+            }
         }
         
         this.removeEventListeners();
         
+        // Limpiar referencias
         this.canvas = null;
         this.ctx = null;
         this.nodes = [];
-        this.active = false;
         this.mousePosition = { x: null, y: null };
+        this.config = {};
+        
+        console.log("Efectos formales limpiados correctamente");
     },
     
     setupEventListeners() {
@@ -242,20 +258,8 @@ const FormalParticles = {
     },
     
     observeThemeChanges() {
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.attributeName === 'class' && mutation.target === document.body) {
-                    const isFormalTheme = document.body.classList.contains('formal-theme');
-                    if (isFormalTheme && !this.active) {
-                        this.resume(document.getElementById('formal-particles'));
-                    } else if (!isFormalTheme && this.active) {
-                        this.pause();
-                    }
-                }
-            });
-        });
-        
-        observer.observe(document.body, { attributes: true });
+        // Theme changes are now handled by theme.js
+        // This method is kept for backward compatibility but does nothing
     }
 };
 

@@ -138,24 +138,8 @@ const MatrixGlitch = {
       }
     });
     
-    // Observar cambios de tema
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'class' && 
-            mutation.target === document.body) {
-          
-          if (document.body.classList.contains('formal-theme')) {
-            console.log("Cambiando a tema formal, pausando MatrixGlitch");
-            this.pause();
-          } else {
-            console.log("Cambiando a tema Matrix, reanudando MatrixGlitch");
-            this.resume(container);
-          }
-        }
-      });
-    });
-    
-    observer.observe(document.body, { attributes: true });
+    // Theme changes are now handled by theme.js
+    // MutationObserver removed to prevent conflicts
     
     console.log("MatrixGlitch inicializado correctamente");
   },
@@ -414,6 +398,8 @@ const MatrixGlitch = {
     console.log("Limpiando efecto Matrix...");
     
     // Detener la animación
+    this.active = false;
+    
     if (this.animationFrame) {
       cancelAnimationFrame(this.animationFrame);
       this.animationFrame = null;
@@ -422,7 +408,9 @@ const MatrixGlitch = {
     // Limpiar el canvas
     if (this.canvas) {
       const ctx = this.canvas.getContext('2d');
-      ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      if (ctx) {
+        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      }
       
       // Remover el canvas del DOM
       if (this.canvas.parentNode) {
@@ -432,7 +420,9 @@ const MatrixGlitch = {
       this.canvas = null;
     }
     
-    this.active = false;
+    // Limpiar configuración
+    this.config = {};
+    
     console.log("Efecto Matrix limpiado correctamente");
   }
 };
@@ -440,11 +430,5 @@ const MatrixGlitch = {
 // Exportar el módulo inmediatamente
 export default MatrixGlitch;
 
-// Inicializar después de cargar el DOM
-document.addEventListener('DOMContentLoaded', () => {
-  // Usar el contenedor a pantalla completa
-  const glitchContainer = document.getElementById('page-matrix-glitch');
-  if (glitchContainer) {
-    MatrixGlitch.init(glitchContainer);
-  }
-});
+// Initialization is now handled by theme.js and init-effects.js
+// Auto-initialization removed to prevent conflicts

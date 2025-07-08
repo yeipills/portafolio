@@ -33,14 +33,22 @@ const utils = {
     },
     scrollToSection(sectionId) {
         try {
-            const section = document.getElementById(sectionId + '-section');
+            const targetElementId = sectionId + '-section';
+            const section = document.getElementById(targetElementId);
+            
             if (!section) {
-                console.warn(`Section ${sectionId}-section not found`);
+                console.warn(`Section ${targetElementId} not found`);
                 return;
             }
-            const offsetTop = section.getBoundingClientRect().top + window.pageYOffset;
+            
+            // Use offsetTop for more reliable positioning
+            const offsetTop = section.offsetTop;
+            const targetPosition = offsetTop - config.scrollOffset;
+            
+            console.log(`Scrolling to section: ${sectionId}, target: ${targetElementId}, position: ${targetPosition}`);
+            
             window.scrollTo({
-                top: offsetTop - config.scrollOffset,
+                top: Math.max(0, targetPosition),
                 behavior: 'smooth'
             });
         } catch (e) {

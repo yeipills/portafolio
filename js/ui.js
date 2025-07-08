@@ -79,12 +79,7 @@ const ui = {
     setupProgressiveLoading() {
         try {
             window.addEventListener('DOMContentLoaded', () => {
-                // Forzar que el cursor vuelva a normal
-                document.body.style.cursor = 'default';
                 document.body.classList.add('content-loaded');
-                
-                // Verificar que la clase se agregó correctamente
-                console.log('Content loaded class added:', document.body.classList.contains('content-loaded'));
                 
                 const announcer = document.getElementById('a11y-announcer');
                 if (announcer) {

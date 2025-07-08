@@ -32,7 +32,46 @@ const theme = {
         }
     },
     
-    async applyTheme(themeName) {
+    applyThemeImmediate(themeName) {
+        // Apply theme immediately without animation (for initial load)
+        const body = document.body;
+        body.classList.remove('formal-theme', 'matrix-theme');
+        if (themeName === 'formal') {
+            body.classList.add('formal-theme');
+        } else {
+            body.classList.add('matrix-theme');
+        }
+        
+        // Actualizar terminal si existe
+        const terminalTitle = document.getElementById('terminal-title');
+        if (terminalTitle) {
+            terminalTitle.textContent = themeName === 'matrix' ? 
+                'dev@matrix:~/portfolio' : 
+                'dev@formal:~/portfolio';
+        }
+        
+        // Guardar tema
+        this.save(themeName);
+        this.updateToggleText();
+        
+        // Emitir evento de cambio de tema
+        const event = new CustomEvent('themeChanged', { 
+            detail: { theme: themeName } 
+        });
+        document.dispatchEvent(event);
+    },
+    
+    async applyTheme(themeName, immediate = false) {
+        if (immediate) {
+            this.applyThemeImmediate(themeName);
+            return;
+        }
+        
+        // Rest of the animated theme application
+        await this.applyThemeWithTransition(themeName);
+    },
+    
+    async applyThemeWithTransition(themeName) {
         // Preparar la transición
         const transitionDuration = 600; // ms
         const body = document.body;
@@ -61,6 +100,9 @@ const theme = {
             });
         });
         
+        // Limpiar efectos actuales ANTES de cambiar el tema
+        await this.cleanupCurrentEffects();
+        
         // Aplicar el tema
         body.classList.remove('formal-theme', 'matrix-theme');
         if (themeName === 'formal') {
@@ -77,10 +119,8 @@ const theme = {
                 'dev@formal:~/portfolio';
         }
         
-        // Reinicializar efectos
-        if (window.forceInitEffects) {
-            await window.forceInitEffects();
-        }
+        // Inicializar efectos del nuevo tema
+        await this.initializeThemeEffects(themeName);
         
         // Guardar tema
         this.save(themeName);
@@ -104,6 +144,74 @@ const theme = {
         document.dispatchEvent(event);
     },
     
+    async cleanupCurrentEffects() {
+        console.log('🧹 Limpiando efectos actuales...');
+        
+        // Limpiar efectos Matrix
+        if (window.MatrixGlitch && typeof window.MatrixGlitch.cleanup === 'function') {
+            window.MatrixGlitch.cleanup();
+        }
+        
+        // Limpiar efectos Formal
+        if (window.FormalParticles && typeof window.FormalParticles.cleanup === 'function') {
+            window.FormalParticles.cleanup();
+        }
+        
+        // Limpiar contenedores
+        const containers = ['matrix-canvas', 'formal-particles', 'page-matrix-glitch'];
+        containers.forEach(containerId => {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = '';
+                container.style.display = 'none';
+            }
+        });
+        
+        // Esperar un poco para asegurar que las animaciones se detengan
+        await new Promise(resolve => setTimeout(resolve, 100));
+    },
+    
+    async initializeThemeEffects(themeName) {
+        console.log(`🎨 Inicializando efectos para tema: ${themeName}`);
+        
+        try {
+            if (themeName === 'formal') {
+                // Importar y inicializar efectos formales
+                const particlesModule = await import('./formal-particles.js');
+                window.FormalParticles = particlesModule.default;
+                
+                const container = document.getElementById('formal-particles');
+                if (container) {
+                    container.style.display = 'block';
+                    window.FormalParticles.init(container, {}, true);
+                }
+            } else {
+                // Importar y inicializar efectos Matrix
+                const matrixModule = await import('./matrix-glitch.js');
+                window.MatrixGlitch = matrixModule.default;
+                
+                const container = document.getElementById('page-matrix-glitch');
+                if (container) {
+                    container.style.display = 'block';
+                    window.MatrixGlitch.init(container, {
+                        density: 0.1,
+                        speed: 2,
+                        maxLength: 30,
+                        colors: [
+                            'rgba(0, 255, 70, 0.4)',
+                            'rgba(0, 255, 0, 0.35)',
+                            'rgba(50, 255, 50, 0.3)'
+                        ]
+                    }, true);
+                }
+            }
+            
+            console.log(`✅ Efectos de tema ${themeName} inicializados correctamente`);
+        } catch (error) {
+            console.error(`❌ Error al inicializar efectos de tema ${themeName}:`, error);
+        }
+    },
+    
     toggle() {
         const currentTheme = document.body.classList.contains('formal-theme') ? 'matrix' : 'formal';
         this.applyTheme(currentTheme);
@@ -112,7 +220,8 @@ const theme = {
     init() {
         try {
             const savedTheme = this.getSaved();
-            this.applyTheme(savedTheme);
+            // Apply theme immediately on init to prevent flash
+            this.applyTheme(savedTheme, true);
             
             // Configurar el botón de cambio de tema
             const themeToggle = document.getElementById('theme-toggle');
@@ -123,7 +232,7 @@ const theme = {
         } catch (error) {
             console.error('Error al inicializar el tema:', error);
             // Fallback al tema formal
-            this.applyTheme('formal');
+            this.applyTheme('formal', true);
         }
     }
 };

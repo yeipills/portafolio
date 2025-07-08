@@ -20,70 +20,13 @@
 
         try {
             // Limpiar efectos existentes
-            const formalParticles = document.getElementById('formal-particles');
-            const matrixCanvas = document.getElementById('matrix-canvas');
-
-            if (formalParticles) {
-                if (window.FormalParticles && typeof FormalParticles.cleanup === 'function') {
-                    FormalParticles.cleanup();
-                }
-                formalParticles.innerHTML = '';
-            }
-            
-            if (matrixCanvas) {
-                if (window.MatrixGlitch && typeof MatrixGlitch.cleanup === 'function') {
-                    MatrixGlitch.cleanup();
-                }
-                matrixCanvas.innerHTML = '';
-            }
+            await cleanupAllEffects();
 
             // Cargar módulos necesarios según el tema
             if (isFormalTheme) {
-                const particlesModule = await import('./formal-particles.js');
-                window.FormalParticles = particlesModule.default;
-                
-                if (formalParticles) {
-                    console.log("🔵 Inicializando partículas formales");
-                    formalParticles.style.display = 'block';
-                    if (matrixCanvas) matrixCanvas.style.display = 'none';
-                    
-                    particlesModule.default.init(formalParticles);
-                }
+                await initializeFormalEffects();
             } else {
-                const glitchModule = await import('./matrix-glitch.js');
-                
-                // Debug: verificar qué se importó
-                console.log("📦 Matrix module imported:", glitchModule);
-                console.log("🎯 default export:", glitchModule.default);
-                console.log("🔍 available exports:", Object.keys(glitchModule));
-                
-                // Intentar usar el default, o buscar MatrixGlitch directamente
-                const MatrixGlitch = glitchModule.default || glitchModule.MatrixGlitch || window.MatrixGlitch;
-                
-                if (!MatrixGlitch) {
-                    throw new Error('No se pudo encontrar MatrixGlitch en el módulo importado');
-                }
-                
-                window.MatrixGlitch = MatrixGlitch;
-                
-                if (matrixCanvas) {
-                    console.log("🟢 Inicializando efecto Matrix");
-                    matrixCanvas.style.display = 'block';
-                    if (formalParticles) formalParticles.style.display = 'none';
-                    
-                    const options = {
-                        density: 0.1, // Aumentada para más caracteres
-                        speed: 2, // Un poco más rápido
-                        maxLength: 30, // Columnas más largas
-                        colors: [
-                            'rgba(0, 255, 70, 0.4)',
-                            'rgba(0, 255, 0, 0.35)',
-                            'rgba(50, 255, 50, 0.3)'
-                        ]
-                    };
-                    
-                    MatrixGlitch.init(matrixCanvas, options);
-                }
+                await initializeMatrixEffects();
             }
 
             window.effects.initialized = true;
@@ -91,20 +34,90 @@
         } catch (error) {
             console.error('❌ Error al inicializar efectos:', error);
             // Intentar recuperación
-            const errorHandler = await import('./error-handler.js');
-            errorHandler.default.handleEffectsError(error);
+            try {
+                const errorHandler = await import('./error-handler.js');
+                errorHandler.default.handleEffectsError(error);
+            } catch (handlerError) {
+                console.error('❌ Error en el manejador de errores:', handlerError);
+            }
+        }
+    }
+
+    async function cleanupAllEffects() {
+        console.log("🧹 Limpiando todos los efectos...");
+        
+        // Limpiar efectos Matrix
+        if (window.MatrixGlitch && typeof window.MatrixGlitch.cleanup === 'function') {
+            window.MatrixGlitch.cleanup();
+        }
+        
+        // Limpiar efectos Formal
+        if (window.FormalParticles && typeof window.FormalParticles.cleanup === 'function') {
+            window.FormalParticles.cleanup();
+        }
+        
+        // Limpiar contenedores
+        const containers = ['matrix-canvas', 'formal-particles', 'page-matrix-glitch'];
+        containers.forEach(containerId => {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = '';
+                container.style.display = 'none';
+            }
+        });
+        
+        // Esperar un poco para asegurar que las animaciones se detengan
+        await new Promise(resolve => setTimeout(resolve, 50));
+    }
+
+    async function initializeFormalEffects() {
+        console.log("🔵 Inicializando efectos formales...");
+        
+        const particlesModule = await import('./formal-particles.js');
+        window.FormalParticles = particlesModule.default;
+        
+        const container = document.getElementById('formal-particles');
+        if (container) {
+            container.style.display = 'block';
+            window.FormalParticles.init(container, {}, true);
+        }
+    }
+
+    async function initializeMatrixEffects() {
+        console.log("🟢 Inicializando efectos Matrix...");
+        
+        const matrixModule = await import('./matrix-glitch.js');
+        window.MatrixGlitch = matrixModule.default;
+        
+        const container = document.getElementById('page-matrix-glitch');
+        if (container) {
+            container.style.display = 'block';
+            
+            const options = {
+                density: 0.1,
+                speed: 2,
+                maxLength: 30,
+                colors: [
+                    'rgba(0, 255, 70, 0.4)',
+                    'rgba(0, 255, 0, 0.35)',
+                    'rgba(50, 255, 50, 0.3)'
+                ]
+            };
+            
+            window.MatrixGlitch.init(container, options, true);
         }
     }
 
     // Inicializar cuando el DOM esté listo
     document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(initializeVisualEffects, 100);
+        // Wait for theme to be applied first
+        setTimeout(initializeVisualEffects, 200);
     });
 
     // Reinicializar cuando cambie el tema
-    document.body.addEventListener('classChange', () => {
+    document.addEventListener('themeChanged', () => {
         console.log("🔄 Cambio de tema detectado, reinicializando efectos...");
-        initializeVisualEffects();
+        setTimeout(initializeVisualEffects, 100);
     });
 
     // Exponer función para reinicio manual

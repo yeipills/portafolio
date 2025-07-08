@@ -46,6 +46,26 @@
     <link rel="stylesheet" href="css/performance-optimizations.css">
     <title>Portfolio - Juan Pablo Rosas M. (Yeipi)</title>
     
+    <!-- Prevent theme flash by applying default theme immediately -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            /* Apply default formal theme immediately */
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        body.formal-theme {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        body.matrix-theme {
+            background: linear-gradient(135deg, #000000 0%, #001100 100%);
+        }
+    </style>
+    
+    <!-- Early theme initialization to prevent flash -->
+    <script src="js/early-theme.js"></script>
+    
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     
@@ -72,7 +92,7 @@
     }
     </script>
 </head>
-<body>
+<body class="formal-theme">
     <!-- Contenedores de efectos visuales -->
     <div id="matrix-canvas" class="matrix-bg" aria-hidden="true"></div>
     <div id="formal-particles" class="formal-bg" aria-hidden="true"></div>

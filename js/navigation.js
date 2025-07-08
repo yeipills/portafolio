@@ -5,19 +5,37 @@ const navigation = {
     init() {
         try {
             const navLinks = document.querySelectorAll('.nav-link');
+            console.log(`Navigation: Found ${navLinks.length} navigation links`);
+            
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const sectionId = link.getAttribute('data-section');
-                    if (!sectionId) return;
+                    console.log(`Navigation: Clicked link for section: ${sectionId}`);
+                    
+                    if (!sectionId) {
+                        console.warn('Navigation: No section ID found for link');
+                        return;
+                    }
+                    
+                    // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked link
                     link.classList.add('active');
+                    
+                    // Scroll to section
                     utils.scrollToSection(sectionId);
                 });
             });
+            
+            // Initialize scroll highlighting
             window.addEventListener('scroll', utils.debounce(() => {
                 this.highlightCurrentSection();
             }, 100));
+            
+            // Set initial active section
+            this.highlightCurrentSection();
+            
             const exportPDF = document.getElementById('export-pdf');
             if (exportPDF) {
                 // No necesita evento click
@@ -39,22 +57,34 @@ const navigation = {
             ];
             const scrollPosition = window.scrollY + config.scrollOffset + 10;
             let currentSection = '';
+            
+            // Find the current section more reliably
             for (const sectionId of sections) {
                 const section = document.getElementById(sectionId);
                 if (!section) continue;
                 const sectionTop = section.offsetTop;
                 const sectionBottom = sectionTop + section.offsetHeight;
+                
+                // Check if we're in this section
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     currentSection = sectionId.replace('-section', '');
                     break;
                 }
             }
-            if (!currentSection && scrollPosition < document.getElementById('profile-section').offsetTop) {
-                currentSection = 'profile';
+            
+            // Default to profile section if at top
+            if (!currentSection) {
+                const firstSection = document.getElementById('profile-section');
+                if (firstSection && scrollPosition < firstSection.offsetTop + firstSection.offsetHeight) {
+                    currentSection = 'profile';
+                }
             }
+            
+            // Update navigation highlighting
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
-                if (link.getAttribute('data-section') === currentSection) {
+                const linkSection = link.getAttribute('data-section');
+                if (linkSection === currentSection) {
                     link.classList.add('active');
                 } else {
                     link.classList.remove('active');
