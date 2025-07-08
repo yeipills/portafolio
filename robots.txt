@@ -14,7 +14,7 @@ Disallow: /js/sw.js
 Disallow: /*.map$
 
 # Sitemap (cuando esté disponible)
-# Sitemap: https://portfolio.juanpablorosas.cl/sitemap.xml
+# Sitemap: https://portfolio.yeipi.cl/sitemap.xml
 
 # Configuración específica para bots principales
 User-agent: Googlebot

@@ -96,7 +96,8 @@ const language = {
             this.translateElement('#competencies', '// PROFESSIONAL COMPETENCIES');
             this.translateElement('#skills', '// TECHNICAL SKILLS');
             this.translateElement('#experience', '// PROFESSIONAL EXPERIENCE');
-            this.translateElement('#projects', '// FEATURED PROJECTS');
+            this.translateElement('#leadership', '// LEADERSHIP');
+            this.translateElement('#projects', '// FEATURED PROJECT');
             this.translateElement('#education', '// EDUCATION');
             this.translateElement('#contact', '// CONTACT');
             const navLinks = document.querySelectorAll('.nav-link');
@@ -104,6 +105,7 @@ const language = {
                 'profile': 'Profile',
                 'skills': 'Skills',
                 'experience': 'Experience',
+                'leadership': 'Leadership',
                 'projects': 'Projects',
                 'education': 'Education',
                 'contact': 'Contact'
@@ -130,18 +132,21 @@ const language = {
                     <p>Renowned for working in multidisciplinary teams, effective technical communication, and quick adaptation to new technologies.</p>
                 `;
             }
-            const competencies = document.querySelectorAll('.competency');
-            const competencyTranslations = [
-                'Analytical problem solving',
+            // Traducir competencias profesionales
+            const competencyLabels = document.querySelectorAll('.competency-label');
+            
+            const labelTranslations = [
+                'Analytical complex problem solving',
                 'Technical team leadership',
                 'Effective technical communication',
-                'Technological adaptability',
-                'Project management',
+                'Rapid technological adaptability',
+                'Efficient project management',
                 'Process automation'
             ];
-            competencies.forEach((comp, index) => {
-                if (competencyTranslations[index]) {
-                    comp.textContent = competencyTranslations[index];
+            
+            competencyLabels.forEach((label, index) => {
+                if (labelTranslations[index]) {
+                    label.textContent = labelTranslations[index];
                 }
             });
             const statusMessage = document.querySelector('.status-message');
@@ -171,7 +176,8 @@ const language = {
             this.translateElement('#competencies', '// COMPETENCIAS PROFESIONALES');
             this.translateElement('#skills', '// HABILIDADES TÉCNICAS');
             this.translateElement('#experience', '// EXPERIENCIA PROFESIONAL');
-            this.translateElement('#projects', '// PROYECTOS DESTACADOS');
+            this.translateElement('#leadership', '// LIDERAZGO');
+            this.translateElement('#projects', '// PROYECTO DESTACADO');
             this.translateElement('#education', '// EDUCACIÓN');
             this.translateElement('#contact', '// CONTACTO');
             
@@ -181,6 +187,7 @@ const language = {
                 'profile': 'Perfil',
                 'skills': 'Habilidades',
                 'experience': 'Experiencia',
+                'leadership': 'Liderazgo',
                 'projects': 'Proyectos',
                 'education': 'Educación',
                 'contact': 'Contacto'
@@ -211,6 +218,24 @@ const language = {
                     <p>Destacado por trabajo en equipos multidisciplinarios, comunicación técnica efectiva y adaptación rápida a nuevas tecnologías.</p>
                 `;
             }
+            
+            // Revertir competencias profesionales al español
+            const competencyLabelsES = document.querySelectorAll('.competency-label');
+            
+            const labelTranslationsES = [
+                'Resolución analítica de problemas complejos',
+                'Liderazgo de equipos técnicos',
+                'Comunicación técnica efectiva',
+                'Adaptabilidad tecnológica rápida',
+                'Gestión eficiente de proyectos',
+                'Automatización de procesos'
+            ];
+            
+            competencyLabelsES.forEach((label, index) => {
+                if (labelTranslationsES[index]) {
+                    label.textContent = labelTranslationsES[index];
+                }
+            });
             
             // Actualizar atributos de idioma
             document.documentElement.lang = 'es';

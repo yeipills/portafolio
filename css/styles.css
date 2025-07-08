@@ -5,10 +5,10 @@
     /* Tema Matrix */
     --base03:  #002b36; /* fondo oscuro */
     --base02:  #073642; /* fondo barra */
-    --base01:  #586e75; /* comentarios */
-    --base00:  #657b83; /* texto oscuro */
+    --base01:  #4a5d66; /* comentarios - mejorado contraste */
+    --base00:  #5a6f7a; /* texto oscuro - mejorado contraste */
     --base0:   #839496; /* texto principal */
-    --base1:   #93a1a1; /* texto claro */
+    --base1:   #a8b5b6; /* texto claro - mejorado contraste */
     --base2:   #eee8d5; /* fondo claro */
     --base3:   #fdf6e3; /* fondo muy claro */
     --yellow:  #b58900;
@@ -29,10 +29,10 @@
 
     /* Tema Formal */
     --formal-primary: #1a5276; /* Azul profesional */
-    --formal-secondary: #2980b9; /* Azul medio */
+    --formal-secondary: #1f5582; /* Azul medio - mejorado contraste */
     --formal-light: #eef6fc; /* Azul muy claro */
     --formal-dark: #333333; /* Texto oscuro */
-    --formal-gray: #f8f9fa; /* Gris claro para fondos */
+    --formal-gray: #f1f3f4; /* Gris claro para fondos - mejorado contraste */
     --formal-accent: #2574a9; /* Acento azul */
     --formal-border: #e0e0e0; /* Bordes claros */
     --formal-highlight: #3498db; /* Destacados */

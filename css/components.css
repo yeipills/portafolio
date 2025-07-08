@@ -6,22 +6,22 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale3d(0.9, 0.9, 1);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
@@ -29,6 +29,7 @@
 section {
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
+  will-change: opacity, transform;
 }
 
 .profile-container, .profile-photo, .competencies,
@@ -36,6 +37,7 @@ section {
 .contact-container, .form-group {
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
+  will-change: opacity, transform;
 }
 
 /* Retrasar animaciones para crear efecto secuencial */
@@ -295,6 +297,285 @@ body.formal-theme .accordion-toggle {
 
 body.formal-theme .accordion-item.active .accordion-content {
   background-color: #f5f9fb;
+}
+
+/* Competencias Profesionales - Diseño Limpio */
+.competencies-container {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.competency-item {
+  background: rgba(15, 30, 15, 0.3);
+  border-left: 3px solid var(--darkgreen);
+  padding: 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.competency-item:hover {
+  background: rgba(15, 30, 15, 0.5);
+  border-left-color: var(--green);
+  transform: translateX(5px);
+}
+
+body.formal-theme .competency-item {
+  background: rgba(255, 255, 255, 0.8);
+  border-left-color: var(--formal-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+body.formal-theme .competency-item:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-left-color: var(--formal-primary);
+  box-shadow: 0 4px 16px rgba(41, 128, 185, 0.1);
+}
+
+.competency-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.competency-label {
+  font-size: 16px;
+  color: var(--green-high-contrast);
+  font-weight: 500;
+  flex: 1;
+}
+
+body.formal-theme .competency-label {
+  color: var(--formal-dark);
+}
+
+.competency-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.bar-fill {
+  height: 8px;
+  background: linear-gradient(90deg, var(--darkgreen), var(--green));
+  border-radius: 4px;
+  width: 0%;
+  transition: width 1.2s ease-out;
+  position: relative;
+}
+
+body.formal-theme .bar-fill {
+  background: linear-gradient(90deg, var(--formal-primary), var(--formal-secondary));
+}
+
+.competency-value {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--green);
+  min-width: 40px;
+  text-align: right;
+}
+
+body.formal-theme .competency-value {
+  color: var(--formal-primary);
+}
+
+.competency-description {
+  color: var(--base0);
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  font-size: 14px;
+}
+
+body.formal-theme .competency-description {
+  color: var(--formal-dark);
+}
+
+.competency-level {
+  width: 100%;
+  height: 12px;
+  background: rgba(5, 15, 5, 0.8);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(21, 255, 0, 0.3);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto de ondas en el fondo */
+.competency-level::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(21, 255, 0, 0.1), 
+    transparent);
+  animation: levelWave 2s ease-in-out infinite;
+}
+
+body.formal-theme .competency-level {
+  background: rgba(240, 248, 255, 0.8);
+  border-color: rgba(41, 128, 185, 0.3);
+}
+
+body.formal-theme .competency-level::before {
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(41, 128, 185, 0.1), 
+    transparent);
+}
+
+.level-bar {
+  height: 100%;
+  background: linear-gradient(45deg, 
+    var(--green) 0%, 
+    var(--darkgreen) 25%, 
+    var(--green) 50%, 
+    var(--darkgreen) 75%, 
+    var(--green) 100%);
+  background-size: 20px 20px;
+  border-radius: 20px;
+  width: 0%;
+  transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  animation: levelBarShine 3s ease-in-out infinite;
+}
+
+/* Efecto de brillo que se mueve */
+.level-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent);
+  animation: levelShine 2s ease-in-out infinite;
+}
+
+/* Porcentaje con diseño mejorado */
+.level-bar::after {
+  content: attr(data-level) '%';
+  position: absolute;
+  right: -40px;
+  top: -35px;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 900;
+  background: rgba(15, 30, 15, 0.9);
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--darkgreen);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-shadow: 0 0 8px rgba(21, 255, 0, 0.6);
+  box-shadow: 0 4px 12px rgba(21, 255, 0, 0.2);
+}
+
+/* Flecha apuntando a la barra */
+.level-bar::after {
+  background: rgba(15, 30, 15, 0.9);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--darkgreen);
+}
+
+body.formal-theme .level-bar {
+  background: linear-gradient(45deg, 
+    var(--formal-primary) 0%, 
+    var(--formal-secondary) 25%, 
+    var(--formal-highlight) 50%, 
+    var(--formal-secondary) 75%, 
+    var(--formal-primary) 100%);
+  background-size: 20px 20px;
+}
+
+body.formal-theme .level-bar::after {
+  color: var(--formal-primary);
+  background: rgba(248, 252, 255, 0.95);
+  border-color: var(--formal-border);
+  text-shadow: 0 0 8px rgba(41, 128, 185, 0.4);
+  box-shadow: 0 4px 12px rgba(41, 128, 185, 0.15);
+}
+
+.competency-card:hover .level-bar::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efecto de partículas que salen de la barra */
+.competency-card:hover .level-bar {
+  box-shadow: 
+    0 0 20px rgba(21, 255, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+body.formal-theme .competency-card:hover .level-bar {
+  box-shadow: 
+    0 0 20px rgba(41, 128, 185, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .competencies-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .competency-card {
+    padding: 20px;
+  }
+  
+  .competency-icon {
+    font-size: 28px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .competency-title {
+    font-size: 16px;
+  }
+  
+  .competency-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+}
+
+/* Responsive para competencias */
+@media (max-width: 768px) {
+  .competencies-container {
+    gap: 15px;
+  }
+  
+  .competency-item {
+    padding: 15px;
+  }
+  
+  .competency-content {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .competency-bar {
+    width: 100%;
+    flex-direction: row;
+  }
 }
 
 body.formal-theme .accordion-content {

@@ -29,14 +29,14 @@
   "author": {
     "name": "Juan Pablo Rosas Martin",
     "email": "juanpablorosasmartin@gmail.com",
-    "url": "https://portfolio.juanpablorosas.cl"
+    "url": "https://portfolio.yeipi.cl"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/yeipills/portafolio.git"
   },
-  "homepage": "https://portfolio.juanpablorosas.cl",
+  "homepage": "https://portfolio.yeipi.cl",
   "engines": {
     "node": ">=14.0.0"
   },

@@ -1,0 +1,106 @@
+/* =========================================
+   Efectos de Hover Estandarizados
+   ========================================= */
+
+/* Variables para transiciones consistentes */
+:root {
+  --hover-transition: all 0.3s ease;
+  --hover-scale: 1.05;
+  --hover-lift: -3px;
+  --hover-shadow-matrix: 0 5px 15px rgba(21, 255, 0, 0.3);
+  --hover-shadow-formal: 0 5px 15px rgba(41, 128, 185, 0.2);
+}
+
+/* Efectos base para elementos interactivos */
+.hover-lift {
+  transition: var(--hover-transition);
+}
+
+.hover-lift:hover {
+  transform: translateY(var(--hover-lift));
+}
+
+.hover-scale {
+  transition: var(--hover-transition);
+}
+
+.hover-scale:hover {
+  transform: scale(var(--hover-scale));
+}
+
+.hover-glow {
+  transition: var(--hover-transition);
+}
+
+/* Tema Matrix */
+.hover-glow:hover {
+  box-shadow: var(--hover-shadow-matrix);
+  text-shadow: 0 0 8px var(--green);
+}
+
+/* Tema Formal */
+body.formal-theme .hover-glow:hover {
+  box-shadow: var(--hover-shadow-formal);
+  text-shadow: none;
+}
+
+/* Botones consistentes */
+.form-button, .nav-button {
+  transition: var(--hover-transition);
+}
+
+.form-button:hover, .nav-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Cards consistentes */
+.project-card, .experience-card, .competency-card {
+  transition: var(--hover-transition);
+}
+
+.project-card:hover, .experience-card:hover, .competency-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Links consistentes */
+.nav-link, .contact-link {
+  transition: var(--hover-transition);
+}
+
+/* Elementos técnicos */
+.tech-item, .competency-item {
+  transition: var(--hover-transition);
+}
+
+.tech-item:hover, .competency-item:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Optimización para rendimiento */
+.hover-lift, .hover-scale, .hover-glow,
+.form-button, .nav-button, .project-card, 
+.experience-card, .competency-card, .nav-link, 
+.contact-link, .tech-item, .competency-item {
+  will-change: transform, box-shadow;
+}
+
+/* Reducir efectos en dispositivos móviles */
+@media (max-width: 768px) {
+  .hover-lift:hover, .hover-scale:hover, .hover-glow:hover,
+  .form-button:hover, .nav-button:hover, .project-card:hover,
+  .experience-card:hover, .competency-card:hover, .tech-item:hover,
+  .competency-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Respetar preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift, .hover-scale, .hover-glow,
+  .form-button, .nav-button, .project-card,
+  .experience-card, .competency-card, .nav-link,
+  .contact-link, .tech-item, .competency-item {
+    transition: none;
+  }
+}

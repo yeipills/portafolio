@@ -1,6 +1,6 @@
 # 🚀 Portfolio - Juan Pablo Rosas M.
 
-[![Portfolio Status](https://img.shields.io/badge/Status-Live-brightgreen)](https://portfolio.juanpablorosas.cl)
+[![Portfolio Status](https://img.shields.io/badge/Status-Live-brightgreen)](https://portfolio.yeipi.cl)
 [![PWA](https://img.shields.io/badge/PWA-Ready-blue)](./manifest.json)
 [![Accessibility](https://img.shields.io/badge/WCAG-AAA-green)](https://www.w3.org/WAI/WCAG2AAA-Conformance)
 
@@ -188,7 +188,7 @@ Este proyecto es de código abierto y está disponible bajo la [MIT License](LIC
 - Email: juanpablorosasmartin@gmail.com
 - GitHub: [@yeipills](https://github.com/yeipills)
 - LinkedIn: [juan-pablo-rosas-martin](https://linkedin.com/in/juan-pablo-rosas-martin)
-- Portfolio: [portfolio.juanpablorosas.cl](https://portfolio.juanpablorosas.cl)
+- Portfolio: [portfolio.yeipi.cl](https://portfolio.yeipi.cl)
 
 ---
 

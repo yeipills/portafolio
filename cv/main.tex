@@ -1,0 +1,228 @@
+%-------------------------
+% Currículum Vitae Profesional Optimizado para ATS
+% Juan Pablo Rosas Martin - Mayo 2025
+%-------------------------
+
+\documentclass[10pt, letterpaper]{article}
+
+%------------------------------------------
+% PAQUETES ESENCIALES
+%------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{fontawesome5}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{pifont}
+\usepackage{hyperref}
+\usepackage[spanish]{babel}
+\usepackage[final]{microtype}
+
+%------------------------------------------
+% CONFIGURACIÓN DE PÁGINA
+%------------------------------------------
+\geometry{
+    paper=letterpaper,
+    margin=0.7cm,
+    top=0.8cm,
+    bottom=0.7cm
+}
+
+% Espaciado y formato
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.05em}
+\setlength{\columnsep}{0.6cm}
+\linespread{0.98}
+\setlength{\multicolsep}{0pt}
+\setlength{\footskip}{0pt}
+
+%------------------------------------------
+% COLORES Y ESTILOS
+%------------------------------------------
+\definecolor{primario}{RGB}{153, 0, 0}
+\definecolor{grisOscuro}{RGB}{50, 50, 50}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primario,
+    urlcolor=primario
+}
+
+% Estilo de títulos con línea roja completa
+\titleformat{\section}
+    {\color{primario}\normalsize\bfseries}
+    {}{0em}{}
+    [{\color{primario}\titlerule[1pt]}\vspace{0.2cm}]
+
+% Listas con viñetas rojas
+\setlist[itemize]{
+    label={\color{primario}$\bullet$},
+    leftmargin=0.5cm,
+    itemsep=0.05cm,
+    topsep=0.05cm,
+    parsep=0pt,
+    rightmargin=0pt
+}
+
+%------------------------------------------
+% COMANDOS PERSONALIZADOS
+%------------------------------------------
+% Habilidad normal
+\newcommand{\skill}[1]{
+    \begin{tikzpicture}[baseline=(char.base)]
+        \node[rectangle, rounded corners=1pt, draw=grisOscuro, 
+              text=grisOscuro, inner sep=1.5pt] (char) {\footnotesize\textbf{#1}};
+    \end{tikzpicture}
+    \hspace{0.1cm}
+}
+
+% Habilidad destacada
+\newcommand{\keyskill}[1]{
+    \begin{tikzpicture}[baseline=(char.base)]
+        \node[rectangle, rounded corners=1pt, fill=primario, draw=primario,
+              text=white, inner sep=1.5pt] (char) {\footnotesize\textbf{#1}};
+    \end{tikzpicture}
+    \hspace{0.1cm}
+}
+
+% Experiencia profesional
+\newcommand{\experiencia}[4]{
+    {\bfseries\color{primario}#1} \hfill {\footnotesize\textbf{#2}}\\[0.05cm]
+    {\footnotesize\textit{#3, #4}}\\[0.1cm]
+}
+
+% Logro o punto destacado
+\newcommand{\logro}[1]{
+    \item {\footnotesize #1}
+}
+
+%------------------------------------------
+% DOCUMENTO
+%------------------------------------------
+\begin{document}
+\pagestyle{empty}
+
+%------------------------------------------
+% ENCABEZADO
+%------------------------------------------
+\begin{center}
+    {\color{primario}\Large\textbf{JUAN PABLO ROSAS MARTIN}}\\[0.05cm]
+    {\color{primario}\small\textbf{INGENIERO EN EJECUCIÓN DE COMPUTACIÓN E INFORMÁTICA}}\\[0.15cm]
+    
+    \footnotesize
+    \raisebox{-0.6pt}{\textcolor{primario}{\faGithub}}~\href{https://github.com/yeipills}{github.com/yeipills}~
+    \raisebox{-0.6pt}{\textcolor{primario}{\faMobile}}~+56 9 6903 0631~
+    \raisebox{-0.6pt}{\textcolor{primario}{\faEnvelope}}~\href{mailto:juanpablorosasmartin@gmail.com}{juanpablorosasmartin@gmail.com}\\[0.05cm]
+    \raisebox{-0.6pt}{\textcolor{primario}{\faLinkedin}}~\href{https://linkedin.com/in/juan-pablo-rosas-martin}{linkedin.com/in/juan-pablo-rosas-martin}~
+    \raisebox{-0.6pt}{\textcolor{primario}{\faGlobe}}~\href{https://portfolio.juanpablorosas.cl}{portfolio.juanpablorosas.cl}
+\end{center}
+
+%------------------------------------------
+% CONTENIDO EN DOS COLUMNAS
+%------------------------------------------
+\begin{multicols}{2}
+
+%------------------------------------------
+% COLUMNA IZQUIERDA
+%------------------------------------------
+\section*{Resumen Profesional}
+{\footnotesize\sloppy
+Ingeniero en Computación e Informática especializado en desarrollo web full-stack y ciberseguridad. Experiencia creando soluciones tecnológicas innovadoras en entornos académicos y profesionales. Destacado por trabajo en equipos multidisciplinarios, comunicación técnica efectiva y adaptación rápida a nuevas tecnologías.
+}
+
+\section*{Habilidades Técnicas}
+{\footnotesize\textbf{Lenguajes:}} \\[0.05cm]
+\keyskill{JavaScript} \skill{Ruby} \skill{Python} \skill{C++} \\[0.1cm]
+
+{\footnotesize\textbf{Frameworks \& Bibliotecas:}} \\[0.05cm]
+\keyskill{Ruby on Rails 7} \keyskill{React} \skill{Node.js} \skill{Stimulus.js} \skill{Turbo} \\[0.1cm]
+
+{\footnotesize\textbf{Herramientas \& Tecnologías:}} \\[0.05cm]
+\keyskill{PostgreSQL} \keyskill{Docker} \skill{Git} \skill{TailwindCSS} \skill{Firebase} \\[0.1cm]
+
+{\footnotesize\textbf{Especialidades:}} \\[0.05cm]
+\keyskill{Desarrollo full-stack} \keyskill{Ciberseguridad} \skill{Pentesting} \skill{DevOps}
+
+\section*{Educación}
+\experiencia{INGENIERÍA EN COMPUTACIÓN E INFORMÁTICA}{03/2020 - 12/2024}
+{Universidad del Biobío}{Concepción, Chile}
+
+\section*{Certificaciones}
+\begin{itemize}
+    \logro{Huawei - Fiber to the Home (FTTH) (2023)}
+    \logro{Huawei - Mobile Broadband (MBB) (2023)}
+\end{itemize}
+
+\section*{Competencias Profesionales}
+\begin{itemize}
+    \logro{Resolución analítica de problemas complejos}
+    \logro{Liderazgo de equipos técnicos}
+    \logro{Comunicación técnica efectiva}
+    \logro{Adaptabilidad tecnológica rápida}
+    \logro{Gestión eficiente de proyectos}
+    \logro{Automatización de procesos}
+\end{itemize}
+
+\section*{Liderazgo}
+\experiencia{CO-FUNDADOR Y COORDINADOR OPENSOURCE UBB}{01/2022 - Presente}
+{Universidad del Biobío}{Concepción, Chile}
+\begin{itemize}
+    \logro{Fundé organización que creció a 40+ miembros en dos años}
+    \logro{Organicé 15+ eventos educativos con 500+ asistentes}
+    \logro{Establecí alianzas con empresas generando 5 prácticas profesionales}
+\end{itemize}
+
+\columnbreak
+
+%------------------------------------------
+% COLUMNA DERECHA
+%------------------------------------------
+\section*{Experiencia Profesional}
+
+\experiencia{AYUDANTE ACADÉMICO}{03/2023 - 04/2025}
+{Universidad del Biobío}{Concepción, Chile}
+\begin{itemize}
+    \logro{Impartí asignaturas: Introducción a la Ingeniería, Ingeniería de Software, Taller de Desarrollo, Arquitectura de Computadores}
+    \logro{Implementé metodologías didácticas que mejoraron tasas de aprobación en un 25\%}
+    \logro{Desarrollé guías prácticas basadas en casos reales optimizando aprendizaje aplicado}
+    \logro{Implementé sistema automatizado de retroalimentación reduciendo tiempo de evaluación en 40\%}
+    \logro{Tecnologías: GitHub, entornos de simulación, metodologías ágiles, evaluación automatizada}
+\end{itemize}
+
+\experiencia{DESARROLLADOR FULL-STACK - PRÁCTICA PROF.}{01/2024 - 03/2024}
+{INDAMA}{Concepción, Chile}
+\begin{itemize}
+    \logro{Implementé sistema de gestión digital reduciendo tiempo de procesamiento documental en 60\%}
+    \logro{Diseñé plataforma que eliminó duplicación de datos y optimizó flujo de trabajo interdepartamental}
+    \logro{Tecnologías: Firebase, React Native, Expo, Redux, JavaScript, Node.js, Express, Jest}
+\end{itemize}
+
+\experiencia{ANALISTA DE DATOS - PRÁCTICA PROF.}{07/2022 - 09/2022}
+{Municipalidad de Concepción}{Concepción, Chile}
+\begin{itemize}
+    \logro{Desarrollé dashboard interactivo reduciendo en 75\% tiempo de cálculo de horas extras y salarios}
+    \logro{Automaticé procesos críticos eliminando errores humanos y aumentando eficiencia en 35\%}
+    \logro{Implementé visualizaciones de datos mejorando toma de decisiones sobre recursos humanos}
+    \logro{Tecnologías: Excel VBA, Power BI, automatización mediante macros, análisis de datos}
+\end{itemize}
+
+\section*{Proyecto Destacado}
+
+\experiencia{PLATAFORMA EDUCATIVA DE CIBERSEGURIDAD - PROY. TITULACIÓN}{01/2024 - 12/2024}
+{Universidad del Biobío}{Concepción, Chile}
+\begin{itemize}
+    \logro{Arquitecturé plataforma web educativa de ciberseguridad utilizando Ruby on Rails 7.1.3, PostgreSQL y Docker}
+    \logro{Implementé laboratorios interactivos con terminales web (ttyd) en entornos aislados mediante contenedores Docker}
+    \logro{Desarrollé interfaz con TailwindCSS, Stimulus.js y Turbo mejorando experiencia del usuario en 40\%}
+    \logro{Integré sistema de gestión de cursos con roles, evaluaciones dinámicas y métricas en tiempo real}
+    \logro{Diseñé entornos especializados para pentesting, análisis forense y seguridad de redes}
+\end{itemize}
+
+\end{multicols}
+
+\end{document}

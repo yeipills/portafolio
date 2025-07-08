@@ -74,7 +74,7 @@ const contactForm = {
         // Simular delay de red
         return new Promise((resolve) => {
             setTimeout(() => {
-                console.log('Formulario simulado:', data);
+                // Formulario simulado en desarrollo
                 resolve();
             }, 2000);
         });

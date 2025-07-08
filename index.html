@@ -10,12 +10,12 @@
     <meta property="og:title" content="Juan Pablo Rosas M. - Portfolio Profesional">
     <meta property="og:description" content="Ingeniero en Computación e Informática especializado en desarrollo web full-stack y ciberseguridad">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://portfolio.juanpablorosas.cl">
-    <meta property="og:image" content="https://portfolio.juanpablorosas.cl/img/profile.jpg">
+    <meta property="og:url" content="https://portfolio.yeipi.cl">
+    <meta property="og:image" content="https://portfolio.yeipi.cl/img/profile.jpg">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Juan Pablo Rosas M. - Portfolio Profesional">
     <meta name="twitter:description" content="Ingeniero en Computación e Informática especializado en desarrollo web full-stack y ciberseguridad">
-    <meta name="twitter:image" content="https://portfolio.juanpablorosas.cl/img/profile.jpg">
+    <meta name="twitter:image" content="https://portfolio.yeipi.cl/img/profile.jpg">
     <meta name="theme-color" content="#00b894">
     <!-- Seguridad -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self';">
@@ -40,6 +40,9 @@
     <link rel="stylesheet" href="css/formal-theme-fixes.css">
     <!-- Estilos para efectos visuales -->
     <link rel="stylesheet" href="css/effects.css">
+    <!-- Estilos optimizados -->
+    <link rel="stylesheet" href="css/hover-effects.css">
+    <link rel="stylesheet" href="css/performance-optimizations.css">
     <title>Portfolio - Juan Pablo Rosas M. (Yeipi)</title>
     
     <!-- PWA Manifest -->
@@ -54,7 +57,7 @@
       "alternateName": "Yeipi",
       "jobTitle": "Ingeniero en Computación e Informática",
       "description": "Especializado en desarrollo web full-stack y ciberseguridad",
-      "url": "https://portfolio.juanpablorosas.cl",
+      "url": "https://portfolio.yeipi.cl",
       "sameAs": [
         "https://github.com/yeipills",
         "https://linkedin.com/in/juan-pablo-rosas-martin"
@@ -102,6 +105,7 @@
                         <li><a href="#profile" class="nav-link" data-section="profile">Perfil</a></li>
                         <li><a href="#skills" class="nav-link" data-section="skills">Habilidades</a></li>
                         <li><a href="#experience" class="nav-link" data-section="experience">Experiencia</a></li>
+                        <li><a href="#leadership" class="nav-link" data-section="leadership">Liderazgo</a></li>
                         <li><a href="#projects" class="nav-link" data-section="projects">Proyectos</a></li>
                         <li><a href="#education" class="nav-link" data-section="education">Educación</a></li>
                         <li><a href="#contact" class="nav-link" data-section="contact">Contacto</a></li>
@@ -158,13 +162,67 @@
                     
                     <section aria-labelledby="competencies">
                         <h2 class="section-title" id="competencies">// COMPETENCIAS PROFESIONALES</h2>
-                        <div class="competencies">
-                            <div class="competency">Resolución analítica de problemas</div>
-                            <div class="competency">Liderazgo de equipos técnicos</div>
-                            <div class="competency">Comunicación técnica efectiva</div>
-                            <div class="competency">Adaptabilidad tecnológica</div>
-                            <div class="competency">Gestión de proyectos</div>
-                            <div class="competency">Automatización de procesos</div>
+                        
+                        <div class="competencies-container">
+                            <div class="competency-item">
+                                <div class="competency-content">
+                                    <span class="competency-label">Resolución analítica de problemas complejos</span>
+                                    <div class="competency-bar">
+                                        <div class="bar-fill" data-width="95%"></div>
+                                        <span class="competency-value">95%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competency-item">
+                                <div class="competency-content">
+                                    <span class="competency-label">Liderazgo de equipos técnicos</span>
+                                    <div class="competency-bar">
+                                        <div class="bar-fill" data-width="88%"></div>
+                                        <span class="competency-value">88%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competency-item">
+                                <div class="competency-content">
+                                    <span class="competency-label">Comunicación técnica efectiva</span>
+                                    <div class="competency-bar">
+                                        <div class="bar-fill" data-width="92%"></div>
+                                        <span class="competency-value">92%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competency-item">
+                                <div class="competency-content">
+                                    <span class="competency-label">Adaptabilidad tecnológica rápida</span>
+                                    <div class="competency-bar">
+                                        <div class="bar-fill" data-width="96%"></div>
+                                        <span class="competency-value">96%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competency-item">
+                                <div class="competency-content">
+                                    <span class="competency-label">Gestión eficiente de proyectos</span>
+                                    <div class="competency-bar">
+                                        <div class="bar-fill" data-width="90%"></div>
+                                        <span class="competency-value">90%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competency-item">
+                                <div class="competency-content">
+                                    <span class="competency-label">Automatización de procesos</span>
+                                    <div class="competency-bar">
+                                        <div class="bar-fill" data-width="94%"></div>
+                                        <span class="competency-value">94%</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </section>
                     
@@ -209,73 +267,47 @@
                     <section aria-labelledby="skills" id="skills-section">
                         <h2 class="section-title" id="skills">// HABILIDADES TÉCNICAS</h2>
                         
-                        <!-- Acordeón de habilidades -->
-                        <div class="skills-accordion">
-                            <div class="accordion-item">
-                                <div class="accordion-header">
-                                    <span class="skill-icon">💻</span>
-                                    <span class="skill-title">Desarrollo Frontend</span>
-                                    <span class="accordion-toggle">+</span>
-                                </div>
-                                <div class="accordion-content">
-                                    <ul>
-                                        <li>JavaScript / TypeScript</li>
-                                        <li>React / React Native</li>
-                                        <li>HTML5 / CSS3 / SASS</li>
-                                        <li>Stimulus.js / Turbo</li>
-                                        <li>Responsive Design</li>
-                                    </ul>
+                        <!-- Estructura de habilidades basada en CV -->
+                        <div class="skills-cv-structure">
+                            <div class="skill-category">
+                                <h3 class="skill-category-title">Lenguajes:</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag key-skill">JavaScript</span>
+                                    <span class="skill-tag">Ruby</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">C++</span>
                                 </div>
                             </div>
                             
-                            <div class="accordion-item">
-                                <div class="accordion-header">
-                                    <span class="skill-icon">🔧</span>
-                                    <span class="skill-title">Desarrollo Backend</span>
-                                    <span class="accordion-toggle">+</span>
-                                </div>
-                                <div class="accordion-content">
-                                    <ul>
-                                        <li>Ruby on Rails</li>
-                                        <li>Node.js / Express</li>
-                                        <li>Python / Flask</li>
-                                        <li>RESTful APIs</li>
-                                        <li>PostgreSQL / MySQL</li>
-                                    </ul>
+                            <div class="skill-category">
+                                <h3 class="skill-category-title">Frameworks & Bibliotecas:</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag key-skill">Ruby on Rails 7</span>
+                                    <span class="skill-tag key-skill">React</span>
+                                    <span class="skill-tag">Node.js</span>
+                                    <span class="skill-tag">Stimulus.js</span>
+                                    <span class="skill-tag">Turbo</span>
                                 </div>
                             </div>
                             
-                            <div class="accordion-item">
-                                <div class="accordion-header">
-                                    <span class="skill-icon">🔒</span>
-                                    <span class="skill-title">Ciberseguridad</span>
-                                    <span class="accordion-toggle">+</span>
-                                </div>
-                                <div class="accordion-content">
-                                    <ul>
-                                        <li>Pentesting</li>
-                                        <li>Análisis de vulnerabilidades</li>
-                                        <li>Auditoría de seguridad</li>
-                                        <li>Criptografía</li>
-                                        <li>Seguridad en aplicaciones web</li>
-                                    </ul>
+                            <div class="skill-category">
+                                <h3 class="skill-category-title">Herramientas & Tecnologías:</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag key-skill">PostgreSQL</span>
+                                    <span class="skill-tag key-skill">Docker</span>
+                                    <span class="skill-tag">Git</span>
+                                    <span class="skill-tag">TailwindCSS</span>
+                                    <span class="skill-tag">Firebase</span>
                                 </div>
                             </div>
                             
-                            <div class="accordion-item">
-                                <div class="accordion-header">
-                                    <span class="skill-icon">🚀</span>
-                                    <span class="skill-title">DevOps</span>
-                                    <span class="accordion-toggle">+</span>
-                                </div>
-                                <div class="accordion-content">
-                                    <ul>
-                                        <li>Docker / Containerización</li>
-                                        <li>CI/CD Pipelines</li>
-                                        <li>Git / Control de versiones</li>
-                                        <li>Linux / Bash scripting</li>
-                                        <li>Monitoreo y logging</li>
-                                    </ul>
+                            <div class="skill-category">
+                                <h3 class="skill-category-title">Especialidades:</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag key-skill">Desarrollo full-stack</span>
+                                    <span class="skill-tag key-skill">Ciberseguridad</span>
+                                    <span class="skill-tag">Pentesting</span>
+                                    <span class="skill-tag">DevOps</span>
                                 </div>
                             </div>
                         </div>
@@ -296,20 +328,10 @@
                             </ul>
                             <div class="tags" aria-label="Tecnologías">
                                 <span class="tag">GitHub</span>
-                                <span class="tag">Metodologías Ágiles</span>
-                                <span class="tag">Evaluación Automatizada</span>
+                                <span class="tag">Entornos de simulación</span>
+                                <span class="tag">Metodologías ágiles</span>
+                                <span class="tag">Evaluación automatizada</span>
                             </div>
-                        </div>
-                        
-                        <div class="experience-card">
-                            <h3 class="experience-title">CO-FUNDADOR Y COORDINADOR OPENSOURCE UBB</h3>
-                            <div class="experience-date">01/2022 - Presente</div>
-                            <div class="experience-company">Universidad del Biobío, Concepción, Chile</div>
-                            <ul class="experience-list">
-                                <li>Fundé organización que creció a 40+ miembros en dos años</li>
-                                <li>Organicé 15+ eventos educativos con 500+ asistentes</li>
-                                <li>Establecí alianzas con empresas generando 5 prácticas profesionales</li>
-                            </ul>
                         </div>
                         
                         <div class="experience-card">
@@ -325,7 +347,10 @@
                                 <span class="tag">React Native</span>
                                 <span class="tag">Expo</span>
                                 <span class="tag">Redux</span>
+                                <span class="tag">JavaScript</span>
                                 <span class="tag">Node.js</span>
+                                <span class="tag">Express</span>
+                                <span class="tag">Jest</span>
                             </div>
                         </div>
                         
@@ -341,88 +366,55 @@
                             <div class="tags" aria-label="Tecnologías">
                                 <span class="tag">Excel VBA</span>
                                 <span class="tag">Power BI</span>
-                                <span class="tag">Análisis de Datos</span>
+                                <span class="tag">Automatización mediante macros</span>
+                                <span class="tag">Análisis de datos</span>
                             </div>
                         </div>
                     </section>
                     
+                    <section aria-labelledby="leadership" id="leadership-section">
+                        <h2 class="section-title" id="leadership">// LIDERAZGO</h2>
+                        
+                        <div class="experience-card">
+                            <h3 class="experience-title">CO-FUNDADOR Y COORDINADOR OPENSOURCE UBB</h3>
+                            <div class="experience-date">01/2022 - Presente</div>
+                            <div class="experience-company">Universidad del Biobío, Concepción, Chile</div>
+                            <ul class="experience-list">
+                                <li>Fundé organización que creció a 40+ miembros en dos años</li>
+                                <li>Organicé 15+ eventos educativos con 500+ asistentes</li>
+                                <li>Establecí alianzas con empresas generando 5 prácticas profesionales</li>
+                            </ul>
+                        </div>
+                    </section>
+                    
                     <section aria-labelledby="projects" id="projects-section">
-                        <h2 class="section-title" id="projects">// PROYECTOS DESTACADOS</h2>
+                        <h2 class="section-title" id="projects">// PROYECTO DESTACADO</h2>
                         
                         <div class="projects-grid">
-                            <!-- Proyecto 1: Versión mejorada con imagen -->
-                            <article class="project-card">
-                                <!-- Comentado temporalmente: Sección de imagen placeholder
-                                <div class="project-image-container">
-                                    <img src="img/placeholder-project.jpg" alt="Plataforma Educativa de Ciberseguridad" class="project-image">
-                                    <div class="project-overlay">
-                                        <div class="project-links">
-                                            <a href="#" target="_blank" class="project-link">🔗 GitHub</a>
-                                            <a href="#" target="_blank" class="project-link">🚀 Demo</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                -->
+                            <!-- Proyecto Principal: Graduación -->
+                            <article class="project-card featured-project">
                                 <div class="project-info">
-                                    <h3 class="project-title">🔒 Plataforma Educativa de Ciberseguridad</h3>
-                                    <div class="project-status">En desarrollo</div>
-                                    <div class="project-desc">Plataforma web educativa con laboratorios interactivos, sistema de gestión de cursos y entornos especializados para pentesting.</div>
+                                    <h3 class="project-title">🔒 PLATAFORMA EDUCATIVA DE CIBERSEGURIDAD - PROYECTO DE TITULACIÓN</h3>
+                                    <div class="project-date">01/2024 - 12/2024</div>
+                                    <div class="project-company">Universidad del Biobío, Concepción, Chile</div>
+                                    <div class="project-desc">
+                                        <p>Desarrollo completo de una plataforma web educativa especializada en ciberseguridad que integra laboratorios interactivos con entornos reales de aprendizaje.</p>
+                                    </div>
+                                    <ul class="project-achievements">
+                                        <li>Arquitecturé plataforma web educativa de ciberseguridad utilizando Ruby on Rails 7.1.3, PostgreSQL y Docker</li>
+                                        <li>Implementé laboratorios interactivos con terminales web (ttyd) en entornos aislados mediante contenedores Docker</li>
+                                        <li>Desarrollé interfaz con TailwindCSS, Stimulus.js y Turbo mejorando experiencia del usuario en 40%</li>
+                                        <li>Integré sistema de gestión de cursos con roles, evaluaciones dinámicas y métricas en tiempo real</li>
+                                        <li>Diseñé entornos especializados para pentesting, análisis forense y seguridad de redes</li>
+                                    </ul>
                                     <div class="tags" aria-label="Tecnologías utilizadas">
-                                        <span class="tag">Ruby on Rails</span>
+                                        <span class="tag">Ruby on Rails 7.1.3</span>
                                         <span class="tag">PostgreSQL</span>
                                         <span class="tag">Docker</span>
                                         <span class="tag">TailwindCSS</span>
-                                    </div>
-                                </div>
-                            </article>
-                            
-                            <!-- Proyecto 2: Versión mejorada con imagen -->
-                            <article class="project-card">
-                                <!-- Comentado temporalmente: Sección de imagen placeholder
-                                <div class="project-image-container">
-                                    <img src="img/placeholder-project.jpg" alt="Sistema de Gestión Digital" class="project-image">
-                                    <div class="project-overlay">
-                                        <div class="project-links">
-                                            <a href="#" target="_blank" class="project-link">🔗 GitHub</a>
-                                            <a href="#" target="_blank" class="project-link">🚀 Demo</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                -->
-                                <div class="project-info">
-                                    <h3 class="project-title">📊 Sistema de Gestión Digital</h3>
-                                    <div class="project-status">Completado</div>
-                                    <div class="project-desc">Aplicación móvil para gestión de documentos que reduce tiempos de procesamiento y optimiza flujos de trabajo interdepartamentales.</div>
-                                    <div class="tags" aria-label="Tecnologías utilizadas">
-                                        <span class="tag">React Native</span>
-                                        <span class="tag">Firebase</span>
-                                        <span class="tag">Redux</span>
-                                        <span class="tag">Node.js</span>
-                                    </div>
-                                </div>
-                            </article>
-                            
-                            <!-- Proyecto 3: Versión mejorada con imagen -->
-                            <article class="project-card">
-                                <!-- Comentado temporalmente: Sección de imagen placeholder
-                                <div class="project-image-container">
-                                    <img src="img/placeholder-project.jpg" alt="Dashboard Recursos Humanos" class="project-image">
-                                    <div class="project-overlay">
-                                        <div class="project-links">
-                                            <a href="#" target="_blank" class="project-link">🔗 GitHub</a>
-                                            <a href="#" target="_blank" class="project-link">🚀 Demo</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                -->
-                                <div class="project-info">
-                                    <h3 class="project-title">🖥️ Dashboard Recursos Humanos</h3>
-                                    <div class="project-status">Completado</div>
-                                    <div class="project-desc">Dashboard interactivo para cálculo de horas extras y salarios con automatización de procesos y visualizaciones avanzadas.</div>
-                                    <div class="tags" aria-label="Tecnologías utilizadas">
-                                        <span class="tag">Excel VBA</span>
-                                        <span class="tag">Power BI</span>
-                                        <span class="tag">Análisis de Datos</span>
+                                        <span class="tag">Stimulus.js</span>
+                                        <span class="tag">Turbo</span>
+                                        <span class="tag">TTYD</span>
                                     </div>
                                 </div>
                             </article>
@@ -431,7 +423,7 @@
                     
                     <section aria-labelledby="education" id="education-section">
                         <h2 class="section-title" id="education">// EDUCACIÓN</h2>
-                        <p>🎓 <strong>Ingeniería en Computación e Informática</strong> - Universidad del Biobío, Concepción, Chile (2020-2024)</p>
+                        <p>🎓 <strong>Ingeniería en Computación e Informática</strong> - Universidad del Biobío, Concepción, Chile (03/2020 - 12/2024)</p>
                         <p>📚 <strong>Certificación Huawei - Fiber to the Home (FTTH)</strong> (2023)</p>
                         <p>📊 <strong>Certificación Huawei - Mobile Broadband (MBB)</strong> (2023)</p>
                     </section>

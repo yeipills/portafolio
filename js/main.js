@@ -14,6 +14,7 @@ import terminal from './terminal.js';
 import navigation from './navigation.js';
 import ui from './ui.js';
 import './init-effects.js';
+import './components.js';
 
 const PortfolioApp = (() => {
     const init = () => {

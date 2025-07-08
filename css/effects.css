@@ -31,7 +31,6 @@
     pointer-events: none;
     opacity: 0.5;
     display: none;
-    border: 5px solid red; /* Borde de depuración */
 }
 
 /* Efectos de tema Matrix */

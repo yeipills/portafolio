@@ -1,0 +1,165 @@
+/* =========================================
+   Optimizaciones de Rendimiento
+   ========================================= */
+
+/* Optimización de animaciones para GPU */
+@keyframes matrixRain {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 100vh, 0);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Optimización de carousel */
+.tech-carousel {
+  animation: scroll-left 30s linear infinite;
+  will-change: transform;
+  contain: layout style paint;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* Optimización para efectos de partículas */
+.matrix-column {
+  will-change: transform, opacity;
+  contain: layout style paint;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Optimización para elementos con hover */
+.project-card, .experience-card, .competency-card,
+.tech-item, .competency-item, .nav-link, .form-button {
+  will-change: transform;
+  contain: layout style paint;
+}
+
+/* Optimización para scroll */
+.terminal-body {
+  will-change: scroll-position;
+  contain: layout style paint;
+}
+
+/* Lazy loading para elementos no críticos */
+.project-image, .profile-photo {
+  will-change: auto;
+  contain: layout style paint;
+}
+
+/* Optimización para dispositivos de baja potencia */
+@media (max-width: 768px) {
+  .matrix-column {
+    animation-duration: 6s; /* Reducir velocidad en móviles */
+  }
+  
+  .tech-carousel {
+    animation-duration: 60s; /* Carousel más lento */
+  }
+  
+  /* Desactivar animaciones complejas en móviles */
+  .competency-card:hover .level-bar,
+  .project-card:hover .project-image {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Optimización para conexiones lentas */
+@media (prefers-reduced-data: reduce) {
+  .matrix-column {
+    display: none;
+  }
+  
+  .tech-carousel {
+    animation: none;
+  }
+  
+  /* Reducir efectos visuales */
+  .project-card:hover,
+  .experience-card:hover,
+  .competency-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Optimización para modo de ahorro de batería */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .matrix-column,
+  .tech-carousel {
+    animation: none;
+  }
+}
+
+/* Contenido crítico - prioridad de carga */
+.profile-container,
+.terminal-header,
+.nav-container {
+  contain: layout style paint;
+}
+
+/* Elementos no críticos - carga diferida */
+.tech-wall,
+.matrix-column,
+#formal-particles {
+  contain: layout style paint;
+  will-change: auto;
+}
+
+/* Optimización de reflow y repaint */
+.section-title::after,
+.nav-link::after,
+.level-bar::after {
+  contain: layout style paint;
+  will-change: width;
+}
+
+/* Optimización de memoria */
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  will-change: auto;
+}
+
+/* Cleanup de will-change después de animaciones */
+.animation-complete {
+  will-change: auto;
+}

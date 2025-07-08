@@ -23,7 +23,10 @@ const analytics = {
             // Eventos personalizados solo si Analytics está activo
             this.setupEventTracking();
         } else {
-            console.warn('Google Analytics no configurado. Para habilitar, define window.GA_MEASUREMENT_ID con tu ID real.');
+            // Google Analytics no configurado - modo producción sin logging
+            if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                console.warn('Google Analytics no configurado. Para habilitar, define window.GA_MEASUREMENT_ID con tu ID real.');
+            }
         }
     },
 

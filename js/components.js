@@ -10,19 +10,34 @@ const isThemeFormal = () => {
 
 // Acordeón para habilidades
 const initAccordion = () => {
+  // Inicializando acordeón...
   const accordionItems = document.querySelectorAll('.accordion-item');
   
-  if (accordionItems.length === 0) return;
+  // Encontrados elementos de acordeón
+  
+  if (accordionItems.length === 0) {
+    console.warn('⚠️ No se encontraron elementos .accordion-item');
+    return;
+  }
   
   // Abrir el primer item por defecto en tema formal
   if (isThemeFormal()) {
     accordionItems[0].classList.add('active');
+    // Primer acordeón activado para tema formal
   }
   
-  accordionItems.forEach(item => {
+  accordionItems.forEach((item, index) => {
     const header = item.querySelector('.accordion-header');
     
+    if (!header) {
+      console.warn(`⚠️ No se encontró .accordion-header en item ${index}`);
+      return;
+    }
+    
+    // Agregando event listener a acordeón
+    
     header.addEventListener('click', () => {
+      // Click en acordeón
       // Cerrar el acordeón si ya está activo (click para alternar)
       if (item.classList.contains('active')) {
         item.classList.remove('active');
@@ -249,10 +264,61 @@ const initTechCarousel = () => {
   observer.observe(document.body, { attributes: true });
 };
 
-// Inicializar todos los componentes cuando el DOM esté cargado
-document.addEventListener('DOMContentLoaded', () => {
+// Animación simple de barras de competencias
+const initCompetenciesAnimation = () => {
+  // Inicializando animación de competencias...
+  
+  const competencyItems = document.querySelectorAll('.competency-item');
+  if (competencyItems.length === 0) {
+    console.warn('⚠️ No se encontraron elementos de competencias');
+    return;
+  }
+
+  // Intersection Observer para animar cuando entran en vista
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        const item = entry.target;
+        const barFill = item.querySelector('.bar-fill');
+        
+        // Animar la barra con delay
+        setTimeout(() => {
+          if (barFill) {
+            const width = barFill.getAttribute('data-width');
+            barFill.style.width = width;
+          }
+        }, index * 200);
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  competencyItems.forEach(item => {
+    observer.observe(item);
+  });
+
+  // Animación de competencias inicializada
+};
+
+// Función para inicializar todos los componentes
+function initializeComponents() {
+  // Inicializando componentes...
   initAccordion();
   initContactForm();
   initEnhancedNavigation();
   initTechCarousel();
-}); 
+  initCompetenciesAnimation();
+}
+
+// Inicializar inmediatamente si el DOM ya está cargado
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeComponents);
+} else {
+  initializeComponents();
+}
+
+// También exportar para uso externo
+export { initAccordion, initContactForm, initEnhancedNavigation, initTechCarousel, initCompetenciesAnimation }; 

@@ -158,7 +158,7 @@ const terminal = {
                     <li>► Email: <a href="mailto:juanpablorosasmartin@gmail.com" class="contact-link" aria-label="Enviar correo a Juan Pablo Rosas">juanpablorosasmartin@gmail.com</a></li>
                     <li>► GitHub: <a href="https://github.com/yeipills" target="_blank" class="contact-link" aria-label="Visitar perfil de GitHub">github.com/yeipills</a></li>
                     <li>► LinkedIn: <a href="https://linkedin.com/in/juan-pablo-rosas-martin" target="_blank" class="contact-link" aria-label="Visitar perfil de LinkedIn">linkedin.com/in/juan-pablo-rosas-martin</a></li>
-                    <li>► Web: <a href="https://portfolio.juanpablorosas.cl" target="_blank" class="contact-link" aria-label="Visitar sitio web personal">portfolio.juanpablorosas.cl</a></li>
+                    <li>► Web: <a href="https://portfolio.yeipi.cl" target="_blank" class="contact-link" aria-label="Visitar sitio web personal">portfolio.yeipi.cl</a></li>
                     <li>► Teléfono: <a href="tel:+56969030631" class="contact-link" aria-label="Llamar a Juan Pablo Rosas">+56 9 6903 0631</a></li>
                 </ul>
                 
@@ -324,7 +324,7 @@ const terminal = {
                         <li>► Email: <a href="mailto:juanpablorosasmartin@gmail.com" class="contact-link" aria-label="Send email to Juan Pablo Rosas">juanpablorosasmartin@gmail.com</a></li>
                         <li>► GitHub: <a href="https://github.com/yeipills" target="_blank" class="contact-link" aria-label="Visit GitHub profile">github.com/yeipills</a></li>
                         <li>► LinkedIn: <a href="https://linkedin.com/in/juan-pablo-rosas-martin" target="_blank" class="contact-link" aria-label="Visit LinkedIn profile">linkedin.com/in/juan-pablo-rosas-martin</a></li>
-                        <li>► Web: <a href="https://portfolio.juanpablorosas.cl" target="_blank" class="contact-link" aria-label="Visit personal website">portfolio.juanpablorosas.cl</a></li>
+                        <li>► Web: <a href="https://portfolio.yeipi.cl" target="_blank" class="contact-link" aria-label="Visit personal website">portfolio.yeipi.cl</a></li>
                         <li>► Phone: <a href="tel:+56969030631" class="contact-link" aria-label="Call Juan Pablo Rosas">+56 9 6903 0631</a></li>
                     </ul>
                     
