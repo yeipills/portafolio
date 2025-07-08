@@ -34,7 +34,10 @@ const utils = {
     scrollToSection(sectionId) {
         try {
             const section = document.getElementById(sectionId + '-section');
-            if (!section) return;
+            if (!section) {
+                console.warn(`Section ${sectionId}-section not found`);
+                return;
+            }
             const offsetTop = section.getBoundingClientRect().top + window.pageYOffset;
             window.scrollTo({
                 top: offsetTop - config.scrollOffset,

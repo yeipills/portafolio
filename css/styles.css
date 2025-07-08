@@ -83,6 +83,11 @@ body:not(.content-loaded) {
     cursor: wait;
 }
 
+/* Asegurar que el cursor vuelva a normal después de cargar */
+body.content-loaded {
+    cursor: default;
+}
+
 body.content-loaded .loading-overlay {
     display: none;
 }

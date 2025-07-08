@@ -32,6 +32,7 @@ const navigation = {
                 'profile-section',
                 'skills-section',
                 'experience-section',
+                'leadership-section',
                 'projects-section',
                 'education-section',
                 'contact-section'
