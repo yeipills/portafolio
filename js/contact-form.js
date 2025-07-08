@@ -94,7 +94,7 @@ const contactForm = {
         
         // Abrir cliente de email después de un pequeño delay
         setTimeout(() => {
-            window.location.href = mailtoUrl;
+            window.open(mailtoUrl, '_blank');
         }, 1000);
     },
 

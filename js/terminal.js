@@ -21,6 +21,9 @@ const terminal = {
                     <li><span class="highlight">print</span>: Versión imprimible del CV</li>
                     <li><span class="highlight">theme</span>: Cambia entre temas Matrix y Formal</li>
                     <li><span class="highlight">idioma</span>: Cambia entre español e inglés</li>
+                    <li><span class="highlight">portfolio</span>: Información del portfolio</li>
+                    <li><span class="highlight">easter</span>: Comandos secretos</li>
+                    <li><span class="highlight">stats</span>: Métricas de rendimiento</li>
                 </ul>
                 <p>Usa las teclas ↑/↓ para navegar por el historial y <kbd>Tab</kbd> para autocompletar.</p>
             </div>
@@ -171,6 +174,47 @@ const terminal = {
         'clear': () => {
             return 'CLEAR_COMMAND';
         },
+        'portfolio': () => {
+            return `
+                <div class="command-output">
+                    <h3>📁 Portfolio Information</h3>
+                    <p><strong>Version:</strong> 2.0.0</p>
+                    <p><strong>Build:</strong> Production</p>
+                    <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript ES6+</p>
+                    <p><strong>Features:</strong> PWA, Dual Theme, Responsive, Accessible</p>
+                    <p><strong>Repository:</strong> <a href="https://github.com/yeipi/portfolio" target="_blank" class="contact-link">GitHub</a></p>
+                </div>
+            `;
+        },
+        'easter': () => {
+            return `
+                <div class="command-output">
+                    <h3>🥚 Easter Eggs</h3>
+                    <p>Try these secret commands:</p>
+                    <ul>
+                        <li><span class="command-highlight">matrix</span> - Enter the Matrix</li>
+                        <li><span class="command-highlight">neo</span> - Follow the white rabbit</li>
+                        <li><span class="command-highlight">hack</span> - Hacker mode</li>
+                        <li><span class="command-highlight">konami</span> - Classic code</li>
+                        <li>Press <span class="command-highlight">↑ ↑ ↓ ↓ ← → ← → B A</span> for surprise</li>
+                    </ul>
+                </div>
+            `;
+        },
+        'stats': () => {
+            return `
+                <div class="command-output">
+                    <h3>📊 Portfolio Stats</h3>
+                    <p><strong>Performance:</strong> 95/100</p>
+                    <p><strong>Accessibility:</strong> 100/100</p>
+                    <p><strong>SEO:</strong> 100/100</p>
+                    <p><strong>PWA:</strong> 100/100</p>
+                    <p><strong>Lines of Code:</strong> 8,058</p>
+                    <p><strong>Files:</strong> 35</p>
+                    <p><strong>Load Time:</strong> <2s</p>
+                </div>
+            `;
+        },
         'print': () => {
             window.print();
             return '<p aria-live="polite">Preparando versión imprimible del CV...</p>';
@@ -259,6 +303,9 @@ const terminal = {
                         <li><span class="highlight">print</span>: Printable version of CV</li>
                         <li><span class="highlight">theme</span>: Switch between Matrix and Formal themes</li>
                         <li><span class="highlight">language</span>: Change language (ES/EN)</li>
+                        <li><span class="highlight">portfolio</span>: Portfolio information</li>
+                        <li><span class="highlight">easter</span>: Hidden commands</li>
+                        <li><span class="highlight">stats</span>: Performance metrics</li>
                     </ul>
                     <p>Use ↑/↓ keys to navigate history and <kbd>Tab</kbd> for autocompletion.</p>
                 </div>
