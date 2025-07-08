@@ -32,8 +32,8 @@ const MatrixGlitch = {
     
     const defaults = {
       characters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[]',
-      // Colores tenues con transparencia
-      colors: ['rgba(21, 255, 0, 0.15)', 'rgba(15, 157, 0, 0.12)', 'rgba(42, 255, 28, 0.14)'],
+      // Colores más visibles con mejor transparencia
+      colors: ['rgba(21, 255, 0, 0.6)', 'rgba(15, 157, 0, 0.5)', 'rgba(42, 255, 28, 0.55)'],
       // Densidad de caracteres (menor = más espacio entre ellos)
       density: 0.08,
       // Velocidad de caída base
@@ -66,8 +66,8 @@ const MatrixGlitch = {
     const animate = () => {
       if (!this.active) return;
       
-      // Limpieza con efecto de desvanecimiento
-      ctx.fillStyle = 'rgba(4, 18, 6, 0.05)';
+      // Limpieza con efecto de desvanecimiento más visible
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       // Dibujar y actualizar cada gota
@@ -82,7 +82,7 @@ const MatrixGlitch = {
             
             // Variar ligeramente la opacidad según la posición
             // El primer caracter es más brillante, los siguientes son más tenues
-            let opacity = j === 0 ? 0.6 : 0.2 - (j / drop.chars.length) * 0.15;
+            let opacity = j === 0 ? 1.0 : 0.6 - (j / drop.chars.length) * 0.3;
             
             // Dibujar el caracter
             ctx.font = `${drop.size}px monospace`;
@@ -130,12 +130,21 @@ const MatrixGlitch = {
     animate();
     
     // Manejar cambios de tamaño
-    window.addEventListener('resize', () => {
+    const resizeHandler = () => {
       if (this.active) {
         this.resizeCanvas(canvas, container);
         // Ajustar las gotas al nuevo tamaño
         this.resizeRainDrops(drops, canvas.width);
       }
+    };
+    window.addEventListener('resize', resizeHandler);
+    
+    // Guardar referencia para poder remover el listener
+    this.listeners = this.listeners || [];
+    this.listeners.push({
+      element: window,
+      event: 'resize',
+      handler: resizeHandler
     });
     
     // Theme changes are now handled by theme.js
@@ -288,8 +297,8 @@ const MatrixGlitch = {
     const animate = () => {
       if (!this.active) return;
       
-      // Limpieza con efecto de desvanecimiento
-      ctx.fillStyle = 'rgba(4, 18, 6, 0.05)';
+      // Limpieza con efecto de desvanecimiento más visible
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
       ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
       
       // Dibujar y actualizar cada gota
@@ -300,7 +309,7 @@ const MatrixGlitch = {
           // Lógica de dibujo igual que en init
           for (let j = 0; j < drop.chars.length; j++) {
             const char = drop.chars[j];
-            let opacity = j === 0 ? 0.6 : 0.2 - (j / drop.chars.length) * 0.15;
+            let opacity = j === 0 ? 1.0 : 0.6 - (j / drop.chars.length) * 0.3;
             ctx.font = `${drop.size}px monospace`;
             
             if (j === 0) {
@@ -419,6 +428,15 @@ const MatrixGlitch = {
       
       this.canvas = null;
     }
+    
+    // Limpiar listeners
+    const oldListeners = this.listeners || [];
+    oldListeners.forEach(listener => {
+      if (listener.element && listener.event && listener.handler) {
+        listener.element.removeEventListener(listener.event, listener.handler);
+      }
+    });
+    this.listeners = [];
     
     // Limpiar configuración
     this.config = {};

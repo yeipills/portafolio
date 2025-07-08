@@ -71,7 +71,7 @@ const matrix = {
             for (let j = 0; j < length; j++) {
                 this.drops[i].chars.push({
                     value: this.symbols[Math.floor(Math.random() * this.symbols.length)],
-                    brightness: j === 0 ? 1 : Math.random() * 0.3 + 0.1
+                    brightness: j === 0 ? 1 : Math.random() * 0.5 + 0.3 // Hacer más brillante
                 });
             }
         }
@@ -96,7 +96,7 @@ const matrix = {
         }
 
         // Limpiar canvas con un poco de opacidad para crear estela
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         // Actualizar y dibujar cada columna
@@ -111,8 +111,8 @@ const matrix = {
                 // Solo dibujar si está en pantalla
                 if (y > -this.fontSize && y < this.canvas.height) {
                     // Color base verde Matrix con brillo variable
-                    const alpha = char.brightness;
-                    this.ctx.fillStyle = `rgba(20, 255, 0, ${alpha})`;
+                    const alpha = char.brightness * 1.5; // Hacer más brillante
+                    this.ctx.fillStyle = `rgba(20, 255, 0, ${Math.min(alpha, 1)})`;
                     
                     // Dibujar carácter
                     this.ctx.fillText(char.value, drop.x, y);

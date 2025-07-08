@@ -72,8 +72,8 @@ const theme = {
     },
     
     async applyThemeWithTransition(themeName) {
-        // Preparar la transición
-        const transitionDuration = 600; // ms
+        // Preparar la transición - reducida para menos parpadeo
+        const transitionDuration = 200; // ms
         const body = document.body;
         
         // Crear un overlay para la transición suave
@@ -157,18 +157,28 @@ const theme = {
             window.FormalParticles.cleanup();
         }
         
-        // Limpiar contenedores
+        // Limpiar contenedores más agresivamente
         const containers = ['matrix-canvas', 'formal-particles', 'page-matrix-glitch'];
         containers.forEach(containerId => {
             const container = document.getElementById(containerId);
             if (container) {
+                // Cancelar cualquier animación activa
+                const canvases = container.querySelectorAll('canvas');
+                canvases.forEach(canvas => {
+                    const ctx = canvas.getContext('2d');
+                    if (ctx) {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    }
+                });
+                
+                // Limpiar completamente el contenedor
                 container.innerHTML = '';
                 container.style.display = 'none';
             }
         });
         
-        // Esperar un poco para asegurar que las animaciones se detengan
-        await new Promise(resolve => setTimeout(resolve, 100));
+        // Tiempo reducido para minimizar parpadeo
+        await new Promise(resolve => setTimeout(resolve, 30));
     },
     
     async initializeThemeEffects(themeName) {
@@ -198,9 +208,9 @@ const theme = {
                         speed: 2,
                         maxLength: 30,
                         colors: [
-                            'rgba(0, 255, 70, 0.4)',
-                            'rgba(0, 255, 0, 0.35)',
-                            'rgba(50, 255, 50, 0.3)'
+                            'rgba(0, 255, 70, 0.7)',
+                            'rgba(0, 255, 0, 0.6)',
+                            'rgba(50, 255, 50, 0.65)'
                         ]
                     }, true);
                 }

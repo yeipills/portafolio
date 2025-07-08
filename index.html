@@ -121,16 +121,7 @@
             
             <!-- Barra de navegación estilo terminal -->
             <nav class="terminal-nav" role="navigation" aria-label="Navegación principal">
-                <div class="nav-container">
-                    <ul class="nav-list">
-                        <li><a href="#profile" class="nav-link" data-section="profile">Perfil</a></li>
-                        <li><a href="#skills" class="nav-link" data-section="skills">Habilidades</a></li>
-                        <li><a href="#experience" class="nav-link" data-section="experience">Experiencia</a></li>
-                        <li><a href="#leadership" class="nav-link" data-section="leadership">Liderazgo</a></li>
-                        <li><a href="#projects" class="nav-link" data-section="projects">Proyectos</a></li>
-                        <li><a href="#education" class="nav-link" data-section="education">Educación</a></li>
-                        <li><a href="#contact" class="nav-link" data-section="contact">Contacto</a></li>
-                    </ul>
+                <div class="nav-container" style="justify-content: flex-end;">
                     <div class="nav-controls">
                         <button class="theme-toggle nav-button" id="theme-toggle" type="button" aria-label="Cambiar tema visual">Tema</button>
                         <button class="language-toggle nav-button" id="language-toggle" type="button" aria-label="Cambiar idioma">ES | EN</button>
@@ -143,16 +134,23 @@
                 <div class="terminal-content">
                     <div class="ascii-art matrix-only" aria-hidden="true">
      ╔═══════════════════════════════════════════════╗
-     ║  ███████╗██╗   ██╗███████╗████████╗███████╗  ║
-     ║  ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝  ║
-     ║  ███████╗ ╚████╔╝ ███████╗   ██║   █████╗    ║
-     ║  ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝    ║
-     ║  ███████║   ██║   ███████║   ██║   ███████╗  ║
-     ║  ╚══════╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝  ║
+     ║                                               ║
+     ║              ┌─────────────────┐              ║
+     ║              │  $ whoami       │              ║
+     ║              │  yeipi          │              ║
+     ║              │  $ pwd          │              ║
+     ║              │  /portfolio     │              ║
+     ║              │  $ ls -la       │              ║
+     ║              │  skills/        │              ║
+     ║              │  projects/      │              ║
+     ║              │  experience/    │              ║
+     ║              │  $ █            │              ║
+     ║              └─────────────────┘              ║
+     ║                                               ║
      ╠═══════════════════════════════════════════════╣
-     ║     ACCESO CONCEDIDO - NIVEL: PRIVILEGIADO    ║
-     ║     USUARIO: YEIPI - ID: QUANTUM-CORE         ║
-     ║     ESTADO: CONEXIÓN SEGURA ESTABLECIDA       ║
+     ║        JUAN PABLO ROSAS MARTIN                ║
+     ║        INGENIERO • DESARROLLADOR              ║
+     ║        ACCESO CONCEDIDO - BIENVENIDO          ║
      ╚═══════════════════════════════════════════════╝
                     </div>
                     
@@ -532,6 +530,7 @@
     
     <!-- Scripts principales -->
     <script type="module" src="js/main.js" defer></script>
+    <script type="module" src="js/theme-seamless.js" defer></script>
     
     <!-- Service Worker para PWA -->
     <script>

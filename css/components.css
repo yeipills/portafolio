@@ -116,6 +116,11 @@ body.formal-theme #page-matrix-glitch {
   display: none;
 }
 
+/* Mostrar en tema Matrix */
+body.matrix-theme #page-matrix-glitch {
+  display: block;
+}
+
 /* Carrusel de tecnologías */
 .tech-wall {
   position: relative;

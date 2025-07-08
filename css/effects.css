@@ -19,6 +19,14 @@
     z-index: -1;
     pointer-events: none;
     background-color: rgba(26, 82, 118, 0.15);
+    opacity: 0;
+    display: none;
+    transition: opacity 100ms ease;
+}
+
+body.formal-theme #formal-particles {
+    opacity: 1;
+    display: block;
 }
 
 #page-matrix-glitch {
@@ -29,8 +37,14 @@
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0;
     display: none;
+    transition: opacity 100ms ease;
+}
+
+body.matrix-theme #page-matrix-glitch {
+    opacity: 1;
+    display: block;
 }
 
 /* Efectos de tema Matrix */

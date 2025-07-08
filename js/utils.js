@@ -38,6 +38,14 @@ const utils = {
             
             if (!section) {
                 console.warn(`Section ${targetElementId} not found`);
+                // Try alternative approach - scroll to element with href
+                const altTarget = document.querySelector(`#${sectionId}`);
+                if (altTarget) {
+                    altTarget.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
                 return;
             }
             
@@ -47,10 +55,38 @@ const utils = {
             
             console.log(`Scrolling to section: ${sectionId}, target: ${targetElementId}, position: ${targetPosition}`);
             
-            window.scrollTo({
-                top: Math.max(0, targetPosition),
-                behavior: 'smooth'
-            });
+            // Ensure smooth scrolling works
+            try {
+                window.scrollTo({
+                    top: Math.max(0, targetPosition),
+                    behavior: 'smooth'
+                });
+            } catch (scrollError) {
+                console.warn('Smooth scroll failed, using fallback:', scrollError);
+                window.scrollTo(0, Math.max(0, targetPosition));
+            }
+            
+            // Fallback for browsers that don't support smooth scroll
+            if (!window.CSS || !window.CSS.supports('scroll-behavior', 'smooth')) {
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 500; // 500ms
+                let start = null;
+                
+                const step = (timestamp) => {
+                    if (!start) start = timestamp;
+                    const progress = timestamp - start;
+                    const scrollY = startPosition + (distance * (progress / duration));
+                    
+                    window.scrollTo(0, scrollY);
+                    
+                    if (progress < duration) {
+                        requestAnimationFrame(step);
+                    }
+                };
+                
+                requestAnimationFrame(step);
+            }
         } catch (e) {
             utils.logError('Scroll To Section', e);
         }

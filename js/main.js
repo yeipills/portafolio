@@ -19,6 +19,9 @@ import './components.js';
 const PortfolioApp = (() => {
     const init = () => {
         try {
+            // Ensure content-loaded class is added early to prevent loading cursor
+            document.body.classList.add('content-loaded');
+            
             theme.init();
             terminal.init();
             ui.init();
@@ -32,4 +35,9 @@ const PortfolioApp = (() => {
     return { init };
 })();
 
-document.addEventListener('DOMContentLoaded', PortfolioApp.init);
+// Add content-loaded immediately if DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', PortfolioApp.init);
+} else {
+    PortfolioApp.init();
+}

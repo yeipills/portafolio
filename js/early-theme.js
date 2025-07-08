@@ -28,6 +28,9 @@
             body.classList.add('matrix-theme');
         }
         
+        // Add content-loaded class immediately to prevent loading cursor
+        body.classList.add('content-loaded');
+        
         // Update terminal title if it exists
         const terminalTitle = document.getElementById('terminal-title');
         if (terminalTitle) {

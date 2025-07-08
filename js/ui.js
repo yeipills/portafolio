@@ -78,7 +78,11 @@ const ui = {
     },
     setupProgressiveLoading() {
         try {
+            // Add content-loaded class immediately to prevent loading cursor
+            document.body.classList.add('content-loaded');
+            
             window.addEventListener('DOMContentLoaded', () => {
+                // Ensure the class is added (in case it wasn't added before)
                 document.body.classList.add('content-loaded');
                 
                 const announcer = document.getElementById('a11y-announcer');

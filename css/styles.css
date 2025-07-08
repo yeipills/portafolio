@@ -84,8 +84,27 @@ body:not(.content-loaded) {
 }
 
 /* Asegurar que el cursor vuelva a normal después de cargar */
-body.content-loaded {
+body.content-loaded, body {
     cursor: default;
+}
+
+/* Fallback para evitar cursor de espera persistente */
+body:not(.content-loaded):not(.loading) {
+    cursor: default;
+}
+
+/* Asegurar que el cursor sea normal después de 2 segundos como último recurso */
+body:not(.content-loaded) {
+    animation: forceDefaultCursor 2s linear forwards;
+}
+
+@keyframes forceDefaultCursor {
+    0%, 99% {
+        cursor: wait;
+    }
+    100% {
+        cursor: default;
+    }
 }
 
 /* Restaurar cursors específicos después de cargar */
@@ -476,6 +495,7 @@ body.no-animations .typed-text::after {
     color: var(--green-high-contrast);
     text-shadow: 0 0 5px var(--green);
     margin: 20px 0;
+    text-align: center;
 }
 
 /* =========================================

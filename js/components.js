@@ -158,24 +158,8 @@ const initEnhancedNavigation = () => {
       nav.classList.remove('scrolled');
     }
     
-    // Destacar el enlace activo según la sección visible
-    let currentSection = '';
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      const sectionHeight = section.offsetHeight;
-      
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        currentSection = section.getAttribute('id').replace('-section', '');
-      }
-    });
-    
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('data-section') === currentSection) {
-        link.classList.add('active');
-      }
-    });
+    // Note: Active section highlighting is now handled by navigation.js
+    // This prevents conflicts between the two navigation systems
   }
   
   // Ejecutar al cargar y al hacer scroll

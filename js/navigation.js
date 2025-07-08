@@ -4,41 +4,51 @@ import config from './config.js';
 const navigation = {
     init() {
         try {
-            const navLinks = document.querySelectorAll('.nav-link');
-            console.log(`Navigation: Found ${navLinks.length} navigation links`);
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const sectionId = link.getAttribute('data-section');
-                    console.log(`Navigation: Clicked link for section: ${sectionId}`);
-                    
-                    if (!sectionId) {
-                        console.warn('Navigation: No section ID found for link');
-                        return;
-                    }
-                    
-                    // Remove active class from all links
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    // Add active class to clicked link
-                    link.classList.add('active');
-                    
-                    // Scroll to section
-                    utils.scrollToSection(sectionId);
+            // Wait for DOM to be ready
+            const initNavigation = () => {
+                const navLinks = document.querySelectorAll('.nav-link');
+                console.log(`Navigation: Found ${navLinks.length} navigation links`);
+                
+                navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const sectionId = link.getAttribute('data-section');
+                        console.log(`Navigation: Clicked link for section: ${sectionId}`);
+                        
+                        if (!sectionId) {
+                            console.warn('Navigation: No section ID found for link');
+                            return;
+                        }
+                        
+                        // Remove active class from all links
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        // Add active class to clicked link
+                        link.classList.add('active');
+                        
+                        // Scroll to section
+                        utils.scrollToSection(sectionId);
+                    });
                 });
-            });
-            
-            // Initialize scroll highlighting
-            window.addEventListener('scroll', utils.debounce(() => {
+                
+                // Initialize scroll highlighting
+                window.addEventListener('scroll', utils.debounce(() => {
+                    this.highlightCurrentSection();
+                }, 100));
+                
+                // Set initial active section
                 this.highlightCurrentSection();
-            }, 100));
+                
+                const exportPDF = document.getElementById('export-pdf');
+                if (exportPDF) {
+                    // No necesita evento click
+                }
+            };
             
-            // Set initial active section
-            this.highlightCurrentSection();
-            
-            const exportPDF = document.getElementById('export-pdf');
-            if (exportPDF) {
-                // No necesita evento click
+            // Initialize immediately if DOM is ready, otherwise wait
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initNavigation);
+            } else {
+                initNavigation();
             }
         } catch (e) {
             utils.logError('Navigation Init', e);
