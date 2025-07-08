@@ -30,8 +30,9 @@
     <link rel="apple-touch-icon" sizes="152x152" href="img/icon-152x152.png">
     <link rel="apple-touch-icon" sizes="144x144" href="img/icon-144x144.png">
     <link rel="apple-touch-icon" sizes="120x120" href="img/icon-128x128.png">
-    <!-- Preload de estilos -->
-    <link rel="preload" href="css/styles.css" as="style">
+    <!-- Preload de estilos críticos -->
+    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
     <link rel="stylesheet" href="css/styles.css">
     <!-- Nuevos estilos para componentes avanzados -->
     <link rel="stylesheet" href="css/components.css">

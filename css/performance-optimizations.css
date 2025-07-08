@@ -51,16 +51,16 @@
   }
 }
 
-/* Optimización para efectos de partículas */
-.matrix-column {
+/* Optimización para efectos de partículas - solo durante animación */
+.matrix-column.animating {
   will-change: transform, opacity;
   contain: layout style paint;
   transform: translate3d(0, 0, 0);
 }
 
-/* Optimización para elementos con hover */
-.project-card, .experience-card, .competency-card,
-.tech-item, .competency-item, .nav-link, .form-button {
+/* Optimización para elementos con hover - solo durante hover */
+.project-card:hover, .experience-card:hover, .competency-card:hover,
+.tech-item:hover, .competency-item:hover, .nav-link:hover, .form-button:hover {
   will-change: transform;
   contain: layout style paint;
 }

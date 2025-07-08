@@ -29,7 +29,6 @@
 section {
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
-  will-change: opacity, transform;
 }
 
 .profile-container, .profile-photo, .competencies,
@@ -37,6 +36,13 @@ section {
 .contact-container, .form-group {
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Solo aplicar will-change durante animación */
+section.animating,
+.profile-container.animating, .profile-photo.animating, .competencies.animating,
+.tech-wall.animating, .experience-card.animating, .project-card.animating,
+.contact-container.animating, .form-group.animating {
   will-change: opacity, transform;
 }
 

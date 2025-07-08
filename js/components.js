@@ -16,7 +16,7 @@ const initAccordion = () => {
   // Encontrados elementos de acordeón
   
   if (accordionItems.length === 0) {
-    console.warn('⚠️ No se encontraron elementos .accordion-item');
+    // Accordion opcional - no mostrar warning
     return;
   }
   

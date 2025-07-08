@@ -76,11 +76,11 @@ body.formal-theme .hover-glow:hover {
   transform: translateY(-3px) scale(1.02);
 }
 
-/* Optimización para rendimiento */
-.hover-lift, .hover-scale, .hover-glow,
-.form-button, .nav-button, .project-card, 
-.experience-card, .competency-card, .nav-link, 
-.contact-link, .tech-item, .competency-item {
+/* Optimización para rendimiento - solo durante hover */
+.hover-lift:hover, .hover-scale:hover, .hover-glow:hover,
+.form-button:hover, .nav-button:hover, .project-card:hover, 
+.experience-card:hover, .competency-card:hover, .nav-link:hover, 
+.contact-link:hover, .tech-item:hover, .competency-item:hover {
   will-change: transform, box-shadow;
 }
 
