@@ -38,7 +38,6 @@
 /* Optimización de carousel */
 .tech-carousel {
   animation: scroll-left 30s linear infinite;
-  will-change: transform;
   contain: layout style paint;
 }
 
@@ -67,13 +66,11 @@
 
 /* Optimización para scroll */
 .terminal-body {
-  will-change: scroll-position;
   contain: layout style paint;
 }
 
 /* Lazy loading para elementos no críticos */
 .project-image, .profile-photo {
-  will-change: auto;
   contain: layout style paint;
 }
 
@@ -140,7 +137,6 @@
 .matrix-column,
 #formal-particles {
   contain: layout style paint;
-  will-change: auto;
 }
 
 /* Optimización de reflow y repaint */
@@ -148,7 +144,6 @@
 .nav-link::after,
 .level-bar::after {
   contain: layout style paint;
-  will-change: width;
 }
 
 /* Optimización de memoria */
@@ -156,10 +151,9 @@
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
-  will-change: auto;
 }
 
 /* Cleanup de will-change después de animaciones */
 .animation-complete {
-  will-change: auto;
+  /* No will-change needed */
 }

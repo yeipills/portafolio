@@ -30,7 +30,7 @@ const initAccordion = () => {
     const header = item.querySelector('.accordion-header');
     
     if (!header) {
-      console.warn(`⚠️ No se encontró .accordion-header en item ${index}`);
+      // Header no encontrado - accordion opcional
       return;
     }
     
@@ -270,7 +270,7 @@ const initCompetenciesAnimation = () => {
   
   const competencyItems = document.querySelectorAll('.competency-item');
   if (competencyItems.length === 0) {
-    console.warn('⚠️ No se encontraron elementos de competencias');
+    // Competencias no encontradas - opcional
     return;
   }
 
